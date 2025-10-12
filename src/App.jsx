@@ -1,27 +1,30 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
 import logoImage from './assets/LOGO 1.svg'
-import { HiMenuAlt3, HiShoppingCart } from 'react-icons/hi'
-import { MdHeadphones } from 'react-icons/md'
-import { FaDiamond } from 'react-icons/fa6'
-import things from './assets/home/things.svg'
+import { HiMenuAlt3 } from 'react-icons/hi'
 import './App.css'
-import yellow from './assets/yellow line.svg'
+import Home from './pages/Home'
+import About from './pages/About'
+import Shop from './pages/Shop'
 
-function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+// Navigation Component
+function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
+  const location = useLocation()
+  
+  const isActive = (path) => {
+    return location.pathname === path
+  }
 
   return (
-    <div className="app">
-     
-
+    <>
       {/* Main Header */}
       <header className="main-header">
         <div className="header-content">
           {/* Left Side - Logo */}
           <div className="header-left">
-            <div className="logo">
+            <Link to="/" className="logo">
               <img src={logoImage} alt="logo" />
-            </div>
+            </Link>
           </div>
 
           {/* Right Side - Mobile Menu Button */}
@@ -35,16 +38,14 @@ function App() {
             </button>
           </div>
         </div>
-        
       </header>
       
-
       {/* Navigation Bar */}
       <nav className="nav-bar">
         <div className="nav-content">
-          <a href="#home" className="nav-link active">Home</a>
-          <a href="#about" className="nav-link">About</a>
-          <a href="#shop" className="nav-link">Shop</a>
+          <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</Link>
+          <Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>About</Link>
+          <Link to="/shop" className={`nav-link ${isActive('/shop') ? 'active' : ''}`}>Shop</Link>
         </div>
       </nav>
 
@@ -63,15 +64,15 @@ function App() {
               </button>
             </div>
             <div className="mobile-menu-links">
-              <a href="#home" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 Home
-              </a>
-              <a href="#about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+              </Link>
+              <Link to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 About
-              </a>
-              <a href="#shop" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+              </Link>
+              <Link to="/shop" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 Shop
-              </a>
+              </Link>
               <div className="mobile-login-section">
                 <button className="mobile-login-btn">
                   Login
@@ -81,74 +82,28 @@ function App() {
           </div>
         </div>
       )}
+    </>
+  )
+}
 
-      {/* Main Content */}
-      <main id='background'>
-      <div className="bar"/>
-      <section className="main-content">
-        <div className='flex flex-col items-center justify-center text-white  '>
-          <div className='hero-text-container'>
-            <div className='flex align-center justify-center flex-wrap'>
-              <span className='baloo-text'>A </span>
-              <span className='pacifico-text'>Creative </span>
-              <span className='baloo-text'>Playground</span>
-            </div>
-            
-            <div className='hero-line'>
-              <span className='baloo-text'>for Digital </span>
-              <span className='pacifico-text'> Products</span>
+function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  return (
+    <Router>
+      <div className="app">
+        <Navigation 
+          isMobileMenuOpen={isMobileMenuOpen} 
+          setIsMobileMenuOpen={setIsMobileMenuOpen} 
+        />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
       </div>
-
-            <div className='flex flex-col items-center justify-center text-white'>
-             <p className='subtitle-text'>
-               Discover, buy, and sell hand-crafted assets,<br />
-               made by creators for creators
-             </p>
-             
-             <div className='button-container'>
-               <button className='cta-button explore-btn'>
-                 Explore Products
-               </button>
-               <button className='cta-button sell-btn'>
-                 Start Selling
-        </button>
-             </div>
-           </div>
-          </div>
-
-            <div className='product-showcase'>
-             <img src={things} alt="Product Showcase" />
-            </div>
-        </div>
-      </section>
-
-      <div className='yellow-line'>
-        <p>| Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books </p>
-      </div>
-      
-
-      <section className="main-content2">
-        <div className="bg-amber-500">
-          {/* <img src={mask} alt="main-content" className='' /> */}
-        </div>
-      </section>
-
-      <section className="main-content3">
-        <div className="bg-amber-500">
-          {/* <img src={mask} alt="main-content" className='' /> */}
-        </div>
-      </section>
-
-      <section className="main-content4">
-        <div className="bg-amber-500">
-          {/* <img src={mask} alt="main-content" className='' /> */}
-        </div>
-      </section>
-
-
-      </main>
-      
-      </div>
+    </Router>
   )
 }
 
