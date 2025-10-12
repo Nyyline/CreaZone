@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
 import logoImage from './assets/LOGO 1.svg'
-import { HiMenuAlt3 } from 'react-icons/hi'
+import { HiMenuAlt3, HiShoppingCart } from 'react-icons/hi'
+import { MdHeadphones } from 'react-icons/md'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -20,15 +21,22 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
       {/* Main Header */}
       <header className="main-header">
         <div className="header-content">
-          {/* Left Side - Logo */}
+          {/* Left Side - Login and Headphones */}
           <div className="header-left">
+            <span className="login-text">Login</span>
+            <MdHeadphones className="headphone-icon" />
+          </div>
+
+          {/* Center - Logo */}
+          <div className="header-center">
             <Link to="/" className="logo">
               <img src={logoImage} alt="logo" />
             </Link>
           </div>
 
-          {/* Right Side - Mobile Menu Button */}
+          {/* Right Side - Shopping Cart and Mobile Menu Button */}
           <div className="header-right">
+            <HiShoppingCart className="cart-icon" />
             <button 
               className="mobile-menu-btn"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -39,7 +47,7 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
           </div>
         </div>
       </header>
-      
+
       {/* Navigation Bar */}
       <nav className="nav-bar">
         <div className="nav-content">
@@ -102,7 +110,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
         </Routes>
-      </div>
+             </div>
     </Router>
   )
 }

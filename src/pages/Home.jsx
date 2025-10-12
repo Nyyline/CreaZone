@@ -1,43 +1,43 @@
-import { useState } from 'react'
 import { HiShoppingCart } from 'react-icons/hi'
 import { MdHeadphones } from 'react-icons/md'
 import { FaDiamond } from 'react-icons/fa6'
 import things from '../assets/home/things.svg'
-import yellow from '../assets/yellow line.svg'
 
 function Home() {
   return (
     <main id='background'>
       <div className="bar"/>
       <section className="main-content">
-        <div className='flex flex-col items-center justify-center text-white  '>
-          <div className='hero-text-container'>
-            <div className='flex align-center justify-center flex-wrap'>
-              <span className='baloo-text'>A </span>
-              <span className='pacifico-text'>Creative </span>
-              <span className='baloo-text'>Playground</span>
-            </div>
-            
-            <div className='hero-line'>
-              <span className='baloo-text'>for Digital </span>
-              <span className='pacifico-text'> Products</span>
-            </div>
+        <div className='hero-container'>
+          <div className='hero-text-section'>
+            <div className='hero-text-container'>
+              <div className='flex align-center justify-center flex-wrap'>
+                <span className='baloo-text'>A </span>
+                <span className='pacifico-text'>Creative </span>
+                <span className='baloo-text'>Playground</span>
+              </div>
+              
+              <div className='hero-line'>
+                <span className='baloo-text'>for Digital </span>
+                <span className='pacifico-text'> Products</span>
+              </div>
 
-            <div className='flex flex-col items-center justify-center text-white'>
-             <p className='subtitle-text'>
-               Discover, buy, and sell hand-crafted assets,<br />
-               made by creators for creators
-             </p>
-             
-             <div className='button-container'>
-               <button className='cta-button explore-btn'>
-                 Explore Products
-               </button>
-               <button className='cta-button sell-btn'>
-                 Start Selling
-               </button>
+              <div className='flex flex-col items-center justify-center text-white'>
+               <p className='subtitle-text'>
+                 Discover, buy, and sell hand-crafted assets,<br />
+                 made by creators for creators
+               </p>
+               
+               <div className='button-container'>
+                 <button className='cta-button explore-btn'>
+                   Explore Products
+                 </button>
+                 <button className='cta-button sell-btn'>
+                   Start Selling
+                 </button>
+               </div>
              </div>
-           </div>
+            </div>
           </div>
 
           <div className='product-showcase'>
