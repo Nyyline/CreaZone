@@ -2,6 +2,7 @@ import { HiShoppingCart } from 'react-icons/hi'
 import { MdHeadphones } from 'react-icons/md'
 import { FaDiamond } from 'react-icons/fa6'
 import things from '../assets/home/things.svg'
+import Group29 from '../assets/home/Group 29.svg'
 
 function Home() {
   return (
@@ -41,14 +42,20 @@ function Home() {
           </div>
 
           <div className='product-showcase'>
-             <img src={things} alt="Product Showcase" />
+             <img src={things} alt="Product Showcase" className="mobile-showcase" />
+             <img src={Group29} alt="Product Showcase" className="desktop-showcase" />
           </div>
         </div>
+
+        
       </section>
 
+    
       <div className='yellow-line'>
-        <p>| Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books </p>
+        <p>| Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books | Planners | Calendars | Art | Printables | Templates | E-books </p>
       </div>
+
+      
       
 
       <section className="main-content2">
