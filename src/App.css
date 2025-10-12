@@ -44,7 +44,9 @@ html, body {
   padding: 15px 20px;
   border-bottom: 1px solid #e0e0e0;
   margin-top: 10px;
+  position: relative;
 }
+
 
 .header-content {
   display: flex;
@@ -52,12 +54,27 @@ html, body {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-/* Header Left - Logo */
+/* Header Left - Login and Headphones */
 .header-left {
   display: flex;
   align-items: center;
+  gap: 8px;
+}
+
+.login-text {
+  font-family: 'Baloo 2', cursive;
+  font-weight: bold;
+  font-size: 16px;
+  color: #2c2c2c;
+}
+
+.headphone-icon {
+  font-size: 20px;
+  color: #2c2c2c;
 }
 
 .mobile-menu-btn {
@@ -74,32 +91,42 @@ html, body {
   transition: all 0.3s ease;
 }
 
-/* Header Center - Logo (Hidden on mobile) */
+/* Header Center - Logo */
 .header-center {
   flex: 1;
   display: flex;
   justify-content: center;
 }
 
-
-
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  text-decoration: none;
 }
 
-.logo-image {
-  height: 40px;
+.logo img {
+  height: 50px;
   width: auto;
-  max-width: 120px;
+  max-width: 200px;
 }
 
-/* Header Right - Mobile Menu Button */
+/* Header Right - Shopping Cart */
 .header-right {
   display: flex;
   align-items: center;
+  gap: 15px;
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: #2c2c2c;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+  color: #20b2aa;
 }
 
 .bar {
@@ -119,17 +146,16 @@ html, body {
 }
 
 /* Navigation Bar */
-
 .nav-bar {
   background-color: #20b2aa;
-  padding: 12px 0;
+  padding: 15px 0;
   margin: 0;
 }
 
 .nav-content {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -138,22 +164,25 @@ html, body {
 .nav-link {
   color: white;
   text-decoration: none;
+  font-family: 'Baloo 2', cursive;
   font-weight: bold;
-  font-size: 16px;
-  padding: 8px 16px;
+  font-size: 18px;
+  padding: 10px 20px;
   transition: all 0.3s ease;
   position: relative;
+  border-radius: 4px;
 }
 
 .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  transform: translateY(-2px);
 }
 
 .nav-link.active {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+  text-decoration-color: white;
 }
 
 /* Main Content */
@@ -777,9 +806,7 @@ html, body {
   
 
   .header-content {
-
     justify-content: space-between;
-
   }
 
   
@@ -1046,6 +1073,48 @@ html, body {
 
   }
 
+  /* Desktop Header Styling */
+  .main-header {
+    padding: 20px 40px;
+    margin-top: 0;
+  }
+
+  .header-content {
+    max-width: 1400px;
+  }
+
+  .login-text {
+    font-size: 18px;
+  }
+
+  .headphone-icon {
+    font-size: 22px;
+  }
+
+  .logo img {
+    height: 60px;
+    max-width: 250px;
+  }
+
+  .cart-icon {
+    font-size: 28px;
+  }
+
+  /* Desktop Navigation Styling */
+  .nav-bar {
+    padding: 5px 0;
+  }
+
+  .nav-content {
+    gap: 80px;
+    max-width: 1400px;
+  }
+
+  .nav-link {
+    font-size: 20px;
+    /* padding: 12px 25px; */
+  }
+
   /* Main Content 2 Desktop Layout */
   .main-content2 {
     background-size: cover;
@@ -1053,7 +1122,7 @@ html, body {
     z-index: 1;
     height: 1200px;
     flex: 1;
-    top: -4vh;
+    top: -5vh;
     position: relative;
     background-position: center;
    

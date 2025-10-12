@@ -7,7 +7,7 @@ import Group29 from '../assets/home/Group 29.svg'
 function Home() {
   return (
     <main id='background'>
-      <div className="bar"/>
+      
       
       <section className="main-content">
         <div className='hero-container'>

@@ -24,7 +24,7 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
           {/* Left Side - Login and Headphones */}
           <div className="header-left">
             <span className="login-text">Login</span>
-            <MdHeadphones className="headphone-icon" />
+            
           </div>
 
           {/* Center - Logo */}
