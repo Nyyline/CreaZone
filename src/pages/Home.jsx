@@ -1,14 +1,38 @@
+import { useState } from 'react'
 import { HiShoppingCart } from 'react-icons/hi'
 import { MdHeadphones } from 'react-icons/md'
 import { FaDiamond } from 'react-icons/fa6'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import things from '../assets/home/things.svg'
 import Group29 from '../assets/home/Group 29.svg'
 import creazone from '../assets/LOGO 1.svg'
 import features from '../assets/home/Features.svg'
 import { Shield, Users, Palette, ShoppingBag } from "lucide-react";
+import products from '../assets/home/products title.svg'
+import tablet from '../assets/home/tablet-mockup-with-blank-screen_410639-117 1.svg'
+import slider1 from '../assets/home/tablet photos/planners.svg'
+import slider2 from '../assets/home/tablet photos/Posters.svg'
+import slider3 from '../assets/home/tablet photos/Others.svg'
+
 
 
 function Home() {
+  // Image slider state
+  const sliderImages = [slider1, slider2, slider3]
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === sliderImages.length - 1 ? 0 : prevIndex + 1
+    )
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? sliderImages.length - 1 : prevIndex - 1
+    )
+  }
+
   return (
     <main id='background'>
       
@@ -95,7 +119,7 @@ function Home() {
                   /* thinner columns */
                   sm:grid-cols-[1500px_240px]
                   md:grid-cols-[280px_280px]
-                  lg:grid-cols-[300px_310px]
+                  lg:grid-cols-[280px_300px]
                   sm:grid-rows-[auto_auto_auto]
                   
                 "
@@ -203,48 +227,49 @@ function Home() {
                 </article>
 
               </div>
-
-
-
-              
-              {/* <div className="features-grid">
-                <div className="feature-card safe-secure">
-                  <div className="star-icon">✦</div>
-                  <h3>Safe & Secure</h3>
-                  <p>Smooth checkout and instant digital downloads.</p>
-                  <div className="card-icon folder-icon">📁</div>
-                </div>
-                
-                <div className="feature-card built-everyone">
-                  <div className="star-icon">✦</div>
-                  <h3>Built for Everyone</h3>
-                  <p>From students and freelancers to busy professionals, Creazone makes planning, organizing, and creating easier with digital products designed to fit every lifestyle.</p>
-                  <div className="card-icon people-icon">👥</div>
-                </div>
-                
-                <div className="feature-card creative-variety">
-                  <div className="star-icon">✦</div>
-                  <h3>Creative Variety</h3>
-                  <p>Planners, templates, e-books, and more — all in one place.</p>
-                  <div className="card-icon palette-icon">🎨</div>
-                </div>
-                
-                <div className="feature-card affordable-accessible">
-                  <div className="star-icon">✦</div>
-                  <h3>Affordable & Accessible</h3>
-                  <p>High-quality digital products without breaking the bank.</p>
-                  <div className="card-icon piggy-icon">🐷</div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
       </section>
 
       <section className="main-content3">
-        <div className="bg-amber-500">
-          {/* <img src={mask} alt="main-content" className='' /> */}
+        <div className='flex justify-center items-center flex-col'>
+          <div className='relative w-[95rem] h-[33rem]'>
+          <img src={products} alt="main-content" className='!mt-50' />
+          </div>
+
+          <div className='relative tablet-container'>
+            {/* Tablet frame */}
+            <img src={tablet} alt="tablet-frame" className='tablet-frame' />
+            
+            {/* Image slider inside tablet */}
+            <div className='tablet-screen'>
+              <img 
+                src={sliderImages[currentImageIndex]} 
+                alt={`slider-${currentImageIndex + 1}`} 
+                className='slider-image'
+              />
+            </div>
+            
+            {/* Navigation arrows */}
+            <button 
+              onClick={prevImage}
+              className='slider-arrow slider-arrow-left'
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            
+            <button 
+              onClick={nextImage}
+              className='slider-arrow slider-arrow-right'
+              aria-label="Next image"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
         </div>
+        
       </section>
 
       <section className="main-content4">
