@@ -1539,7 +1539,7 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 115vh;
+    height: 100vh;
   }
 
   /* Tablet Slider Styles */
@@ -1551,8 +1551,9 @@ html, body {
   .tablet-frame {
     position: relative;
     z-index: 1;
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
+    margin-left: 5%;
   }
 
   .tablet-screen {

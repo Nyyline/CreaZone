@@ -234,8 +234,8 @@ function Home() {
 
       <section className="main-content3">
         <div className='flex justify-center items-center flex-col'>
-          <div className='relative w-[95rem] h-[33rem]'>
-          <img src={products} alt="main-content" className='!mt-50' />
+          <div className='relative w-[70rem] h-[33rem]'>
+          <img src={products} alt="main-content" className='!mt-70' />
           </div>
 
           <div className='relative tablet-container'>
@@ -273,8 +273,16 @@ function Home() {
       </section>
 
       <section className="main-content4">
-        <div className="bg-amber-500">
-          {/* <img src={mask} alt="main-content" className='' /> */}
+        <div className="flex items-center justify-center w-[100vw] h-[100vh]">
+          <div className="text-center !mt-[96%] !mb-[100%]">
+            <h2 className="text-white text-3xl md:text-6xl font-bold mb-6 leading-[1] ">
+              Ready to shop or<br />
+              sell your creativity?
+            </h2>
+            <button className="bg-[#FF6F3C] hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg w-75 h-18 text-3xl !mt-5 border-white border-5">
+              Shop Now!
+            </button>
+          </div>
         </div>
       </section>
     </main>
