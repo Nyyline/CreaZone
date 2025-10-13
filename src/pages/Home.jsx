@@ -13,6 +13,9 @@ import tablet from '../assets/home/tablet-mockup-with-blank-screen_410639-117 1.
 import slider1 from '../assets/home/tablet photos/planners.svg'
 import slider2 from '../assets/home/tablet photos/Posters.svg'
 import slider3 from '../assets/home/tablet photos/Others.svg'
+import plannerMobile from '../assets/home/tablet photos/planner_m.svg'
+import posterMobile from '../assets/home/tablet photos/poster_m.svg'
+import otherMobile from '../assets/home/tablet photos/other_m.svg'
 
 
 
@@ -116,7 +119,7 @@ function Home() {
                   mx-auto
                   grid justify-center items-start
                   gap-x-2 gap-y-3 sm:gap-x-5 sm:gap-y-8
-                  /* Mobile: bento grid layout, Desktop: original grid */
+                  
                   grid-cols-2
                   sm:grid-cols-[150px_240px]
                   md:grid-cols-[280px_280px]
@@ -245,11 +248,37 @@ function Home() {
 
       <section className="main-content3">
         <div className='flex justify-center items-center flex-col'>
-          <div className='relative w-[70rem] h-[33rem]'>
-          <img src={products} alt="main-content" className='!mt-70' />
+          {/* Desktop: Products title */}
+          <div className='relative w-[70rem] h-[33rem] hidden sm:block'>
+            <img src={products} alt="main-content" className='!mt-70' />
           </div>
 
-          <div className='relative tablet-container'>
+          {/* Mobile: Three product cards */}
+          <div className='flex flex-col sm:hidden w-full px-4 py-4 gap-2'>
+          <div className='flex justify-center items-center w-full  sm:hidden'>
+            <img src={products} alt="main-content" className='w-350 h-auto !mt-20 ' />
+          </div>
+            
+            <div className='flex flex-row gap-2 justify-center items-center max-w-sm align-center !mb-[50%] !ml-4 '>
+              {/* Planners Card */}
+              <div className='flex items-center justify-center'>
+                <img src={plannerMobile} alt="Planners" className='w-full h-full object-cover' />
+              </div>
+              
+              {/* Posters Card */}
+              <div className='flex items-center justify-center'>
+                <img src={posterMobile} alt="Posters" className='w-full h-full object-cover' />
+              </div>
+              
+              {/* Others Card */}
+              <div className='flex items-center justify-center'>
+                <img src={otherMobile} alt="Others" className='w-full h-full object-cover' />
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Tablet slider */}
+          <div className='relative tablet-container hidden sm:block'>
             {/* Tablet frame */}
             <img src={tablet} alt="tablet-frame" className='tablet-frame' />
             
