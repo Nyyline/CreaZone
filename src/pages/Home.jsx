@@ -88,18 +88,18 @@ function Home() {
       
 
       <section className="main-content2">
-        <div className="flex w-full h-250 ">
+        <div className="flex flex-col lg:flex-row w-full h-250">
           {/* Left Column - Why CreaZone */}
-          <div className="flex-1 flex items-center justify-center p-8 lg:p-16 bottom-40  ">
-            <div className="why-creazone-content">
-              <div className="why-title">
+          <div className="flex-1 flex items-center justify-center p-2 sm:p-8 lg:p-16 bottom-40">
+            <div className="why-creazone-content text-center sm:text-left">
+              <div className="why-title flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2">
                 <span className="why-text">Why</span>
-                <img src={creazone} alt="CreaZone" className=" w-65" />
+                <img src={creazone} alt="CreaZone" className="w-32 sm:w-50 lg:w-65" />
                 <span className="question-mark">?</span>
               </div>
               
               <div className="why-description">
-                <p>
+                <p className="text-sm sm:text-base">
                   At CreaZone, we believe creativity should be accessible, secure, and fun. That's why we've built a marketplace designed for students, freelancers, and hobbyists who want to discover unique digital products without breaking the bank. Whether you're buying or selling, we make sure the experience is smooth, safe, and inspiring.
                 </p>
               </div>
@@ -107,123 +107,132 @@ function Home() {
           </div>
 
           {/* Right Column - Features */}
-          <div className="flex-1 flex flex-col items-center justify-center p-8 lg:p-16 ">
-            <div className="features-container">
+          <div className="flex-1 flex flex-col items-center justify-center p-2 sm:p-8 lg:p-16">
+            <div className="features-container w-full max-w-sm sm:max-w-none">
             
               {/* BENTO GRID: sticker included */}
               <div
                 className="
                   mx-auto
                   grid justify-center items-start
-                  gap-x-3 gap-y-4 sm:gap-x-5 sm:gap-y-8
-                  /* thinner columns */
-                  sm:grid-cols-[1500px_240px]
+                  gap-x-2 gap-y-3 sm:gap-x-5 sm:gap-y-8
+                  /* Mobile: bento grid layout, Desktop: original grid */
+                  grid-cols-2
+                  sm:grid-cols-[150px_240px]
                   md:grid-cols-[280px_280px]
                   lg:grid-cols-[280px_300px]
+                  grid-rows-[auto_auto_auto_auto]
                   sm:grid-rows-[auto_auto_auto]
-                  
+                  w-full max-w-xs sm:max-w-none
                 "
               >
                 {/* STICKER — row 1, col 1 */}
                 <div className="
+                  col-start-1 row-start-1
                   sm:col-start-1 sm:row-start-1
                   flex items-center justify-center
-                  h-[92px] sm:h-[100px]          /* sticker tile height */
-                  sm:mt-[14px]                   /* same vertical offset as yellow */
+                  h-[50px] sm:h-[100px]          /* sticker tile height */
+                  mt-0 sm:mt-[14px]                   /* same vertical offset as yellow */
                 ">
                   <img
                     src={features}
                     alt="Features"
-                    className="w-[400px] h-400 sm:w-[260px] relative top-[30px]"
+                    className="w-[180px] h-[50px] sm:w-[260px] sm:h-[100px] relative top-[0px] sm:top-[30px]"
                   />
                 </div>
 
                 {/* YELLOW — col 2, spans row 1–2 (taller) */}
                 <article
                   className="
-                    rounded-[28px] !p-5 md:!p-6
+                    rounded-[20px] sm:rounded-[28px] !p-3 sm:!p-5 md:!p-6
                     bg-[#FFD166] text-[#2C2C2C]
+                    col-start-2 row-start-1 row-span-2
                     sm:col-start-2 sm:row-start-1 sm:row-span-2
                     relative 
-                    min-h-[430px] md:min-h-[480px] lg:min-h-[400px] top-[14px]
+                    min-h-[200px] sm:min-h-[430px] md:min-h-[480px] lg:min-h-[400px] 
+                    top-[0px] sm:top-[14px]
                     flex flex-col items-center justify-center text-start gap-2
                     overflow-hidden
                   "
                 >
-                  <div className="max-w-[240px] md:max-w-[260px]">
-                    <h3 className="font-['Pacifico'] text-[22px] md:text-[25px] text-black !mb-3 ">
+                  <div className="max-w-[140px] sm:max-w-[240px] md:max-w-[260px]">
+                    <h3 className="font-['Pacifico'] text-[14px] sm:text-[22px] md:text-[25px] text-black !mb-2 sm:!mb-3 ">
                       Built for Everyone
                     </h3>
-                    <p className="text-[13.5px] md:text-[14px] leading-tight font-['Poppins'] font-semibold">
+                    <p className="text-[10px] sm:text-[13.5px] md:text-[14px] leading-tight font-['Poppins'] font-semibold">
                       From students and freelancers to busy professionals, Creazone makes planning,
                       organizing, and creating easier with digital products designed to fit every lifestyle.
                     </p>
                   </div>
 
                   {/* emblem stays bottom-right */}
-                  <Users className="absolute -right-3 -bottom-5 w-20 h-20 md:w-30 md:h-30 text-black/10 pointer-events-none" />
+                  <Users className="absolute -right-2 -bottom-3 sm:-right-3 sm:-bottom-5 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-black/10 pointer-events-none" />
                 </article>
 
                 {/* ORANGE — col 1, row 2 */}
                 <article
                   className="
-                    rounded-[28px] bg-[#FF6F3C] text-white !p-5 md:!p-6
-                    relative min-h-[230px]
+                    rounded-[20px] sm:rounded-[28px] bg-[#FF6F3C] text-white !p-3 sm:!p-5 md:!p-6
+                    relative min-h-[120px] sm:min-h-[230px]
+                    col-start-1 row-start-2
                     sm:col-start-1 sm:row-start-2
                     flex flex-col items-center justify-center text-start gap-2
                     overflow-hidden
                   "
                 >
-                  <div className="max-w-[240px] md:max-w-[260px] ">
-                    <h3 className="font-['Pacifico'] text-[22px] md:text-[25px] leading-tight !mb-1">
+                  <div className="max-w-[140px] sm:max-w-[240px] md:max-w-[260px] ">
+                    <h3 className="font-['Pacifico'] text-[14px] sm:text-[22px] md:text-[25px] leading-tight !mb-1">
                       Safe &amp; Secure</h3>
-                    <p className="mt-1 text-[13.5px] md:text-[14px] leading-snug opacity-95 font-['Poppins'] font-semibold">
+                    <p className="mt-1 text-[10px] sm:text-[13.5px] md:text-[14px] leading-snug opacity-95 font-['Poppins'] font-semibold">
                       Smooth checkout and instant digital downloads.
                     </p>
                   </div>
 
-                  <Shield className="absolute -right-5 -bottom-3 w-20 h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
+                  <Shield className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
                 </article>
 
                 {/* WHITE — col 1, row 3 */}
                 <article
                   className="
-                    rounded-[28px] bg-white text-[#2C2C2C] !p-5 md:!p-6
-                    relative min-h-[190px] top-[-20px]
+                    rounded-[20px] sm:rounded-[28px] bg-white text-[#2C2C2C] !p-3 sm:!p-5 md:!p-6
+                    relative min-h-[120px] sm:min-h-[190px] 
+                    top-[-5px] sm:top-[-20px]
+                    col-start-1 row-start-3
                     sm:col-start-1 sm:row-start-3
                     flex flex-col items-center justify-center text-start gap-2
                     overflow-hidden
                   "
                 >
-                  <div className="max-w-[240px] md:max-w-[260px]">
-                    <h3 className="font-['Pacifico'] text-[22px] md:text-[25px] text-black !mb-1">
+                  <div className="max-w-[140px] sm:max-w-[240px] md:max-w-[260px]">
+                    <h3 className="font-['Pacifico'] text-[14px] sm:text-[22px] md:text-[25px] text-black !mb-1">
                       Creative Variety</h3>
-                    <p className="mt-1 text-[13.5px] md:text-[14px] leading-snug font-['Poppins'] font-semibold ">
+                    <p className="mt-1 text-[10px] sm:text-[13.5px] md:text-[14px] leading-snug font-['Poppins'] font-semibold ">
                       Planners, templates, e-books, and more — all in one place.
                     </p>
                   </div>
-                  <Palette className="absolute -right-5 -bottom-3 w-20 h-20 md:w-30 md:h-30 text-[#2C2C2C]/10 pointer-events-none" />
+                  <Palette className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-[#2C2C2C]/10 pointer-events-none" />
                 </article>
 
                 {/* CORAL — col 2, row 3 */}
                 <article
                   className="
-                    rounded-[28px] bg-[#FF6F3C] text-white !p-5 md:!p-6
-                    relative min-h-[170px]
+                    rounded-[20px] sm:rounded-[28px] bg-[#FF6F3C] text-white !p-3 sm:!p-5 md:!p-6
+                    relative min-h-[120px] sm:min-h-[170px]
+                    col-start-2 row-start-3
                     sm:col-start-2 sm:row-start-3
                     flex flex-col items-center justify-center text-start gap-2
                     overflow-hidden
                   "
                 >
-                  <div className="max-w-[240px] md:max-w-[260px]">
-                    <h3 className="font-['Pacifico'] text-[20px] md:text-[25px] leading-tight !mb-1">
+                  <div className="max-w-[140px] sm:max-w-[240px] md:max-w-[260px]">
+                    <h3 className="font-['Pacifico'] text-[14px] sm:text-[20px] md:text-[25px] leading-tight !mb-1">
                       Affordable &amp; Accessible
                     </h3>
-                    <p className="mt-1 text-[13.5px] md:text-[14px] leading-snug font-['Poppins'] font-semibold">
+                    <p className="mt-1 text-[10px] sm:text-[13.5px] md:text-[14px] leading-snug font-['Poppins'] font-semibold">
                       High-quality digital products without breaking the bank.
                     </p>
                   </div>
-                  <ShoppingBag className="absolute -right-5 -bottom-3 w-20 h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
+                  <ShoppingBag className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
                 </article>
 
               </div>
