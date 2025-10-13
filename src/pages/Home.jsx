@@ -88,17 +88,17 @@ function Home() {
       
 
       <section className="main-content2">
-        <div className="flex flex-col lg:flex-row w-full h-250">
+        <div className="flex flex-col lg:flex-row w-full h-250 px-4 sm:px-8 lg:px-16">
           {/* Left Column - Why CreaZone */}
-          <div className="flex-1 flex items-center justify-center p-2 sm:p-8 lg:p-16 bottom-40">
-            <div className="why-creazone-content text-center sm:text-left">
-              <div className="why-title flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2">
+          <div className="flex-1 flex items-center justify-center py-4 sm:py-8 lg:py-16 bottom-40 w-full">
+            <div className="why-creazone-content text-center sm:text-left w-full max-w-md mx-auto">
+              <div className="why-title">
                 <span className="why-text">Why</span>
                 <img src={creazone} alt="CreaZone" className="w-32 sm:w-50 lg:w-65" />
                 <span className="question-mark">?</span>
               </div>
               
-              <div className="why-description">
+              <div className="why-description px-2 sm:px-0">
                 <p className="text-sm sm:text-base">
                   At CreaZone, we believe creativity should be accessible, secure, and fun. That's why we've built a marketplace designed for students, freelancers, and hobbyists who want to discover unique digital products without breaking the bank. Whether you're buying or selling, we make sure the experience is smooth, safe, and inspiring.
                 </p>
@@ -107,8 +107,8 @@ function Home() {
           </div>
 
           {/* Right Column - Features */}
-          <div className="flex-1 flex flex-col items-center justify-center p-2 sm:p-8 lg:p-16">
-            <div className="features-container w-full max-w-sm sm:max-w-none">
+          <div className="flex-1 flex flex-col items-center justify-center py-4 sm:py-8 lg:py-16 w-full">
+            <div className="features-container w-full max-w-sm sm:max-w-none px-2 sm:px-0">
             
               {/* BENTO GRID: sticker included */}
               <div
@@ -124,6 +124,8 @@ function Home() {
                   grid-rows-[auto_auto_auto_auto]
                   sm:grid-rows-[auto_auto_auto]
                   w-full max-w-xs sm:max-w-none
+                  justify-self-center
+                  px-2 sm:px-0
                 "
               >
                 {/* STICKER — row 1, col 1 */}
@@ -131,13 +133,13 @@ function Home() {
                   col-start-1 row-start-1
                   sm:col-start-1 sm:row-start-1
                   flex items-center justify-center
-                  h-[50px] sm:h-[100px]          /* sticker tile height */
+                  h-[60px] sm:h-[100px]          /* sticker tile height */
                   mt-0 sm:mt-[14px]                   /* same vertical offset as yellow */
                 ">
                   <img
                     src={features}
                     alt="Features"
-                    className="w-[180px] h-[50px] sm:w-[260px] sm:h-[100px] relative top-[0px] sm:top-[30px]"
+                    className="w-[220px] h-[60px] sm:w-[260px] sm:h-[100px] relative top-[0px] sm:top-[30px]"
                   />
                 </div>
 
