@@ -83,77 +83,117 @@ function Home() {
           {/* Right Column - Features */}
           <div className="flex-1 flex flex-col items-center justify-center p-8 lg:p-16">
             <div className="features-container">
-              <div>
-                <img src={features} alt="Features" className="w-65" />
+            
+              {/* BENTO GRID: sticker included */}
+              <div
+                className="
+                  mx-auto
+                  grid justify-center items-start
+                  gap-x-3 gap-y-4 sm:gap-x-5 sm:gap-y-8
+                  /* thinner columns */
+                  sm:grid-cols-[260px_170px]
+                  md:grid-cols-[270px_210px]
+                  lg:grid-cols-[280px_250px]
+                  sm:grid-rows-[auto_auto_auto]
+                "
+              >
+                {/* STICKER — row 1, col 1 */}
+                <div className="sm:col-start-1 sm:row-start-1 flex justify-center items-center">
+                  <img src={features} alt="Features" className="w-[240px] sm:w-[260px] relative -rotate-3" />
+                </div>
+
+                {/* YELLOW — col 2, spans row 1–2 (taller) */}
+                <article
+                  className="
+                    rounded-[28px] p-5 md:p-6
+                    bg-[#FFD166] text-[#2C2C2C]
+                    sm:col-start-2 sm:row-start-1 sm:row-span-2
+                    flex flex-col justify-between relative
+                    min-h-[320px] md:min-h-[355px]
+                    top-[14px]
+                  "
+                >
+                  <div className="text-start mx-5">
+                    <h3 className="font-['Pacifico'] text-[24px] md:text-[26px] text-black mb-2">
+                      Built for Everyone
+                    </h3>
+                    <p className="text-[13.5px] md:text-[14px] leading-tight font-semibold">
+                      From students and freelancers to busy professionals, Creazone makes planning,
+                      organizing, and creating easier with digital products designed to fit every lifestyle.
+                    </p>
+                  </div>
+                  <div className="mt-6 opacity-25 self-end">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-black/10" />
+                  </div>
+                </article>
+
+                {/* ORANGE — col 1, row 2 */}
+                <article
+                  className="
+                    rounded-[28px] bg-[#FF6F3C] text-white p-5 md:p-6
+                    grid place-content-between relative
+                    sm:col-start-1 sm:row-start-2
+                    min-h-[200px]
+                    
+                  "
+                >
+                  <div>
+                    <h3 className="font-['Pacifico'] text-[24px] md:text-[26px] leading-tight">Safe &amp; Secure</h3>
+                    <p className="mt-2 text-[13.5px] md:text-[14px] leading-snug opacity-95 font-semibold">
+                      Smooth checkout and instant digital downloads.
+                    </p>
+                  </div>
+                  <div className="mt-6 opacity-20 self-end">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/25" />
+                  </div>
+                </article>
+
+                {/* WHITE — col 1, row 3 */}
+                <article
+                  className="
+                    rounded-[28px] bg-white text-[#2C2C2C] p-5 md:p-6
+                    grid place-content-between relative
+                    sm:col-start-1 sm:row-start-3
+                    min-h-[190px]
+                    top-[-20px]
+                  "
+                >
+                  <div>
+                    <h3 className="font-['Pacifico'] text-[24px] md:text-[26px] text-black">Creative Variety</h3>
+                    <p className="mt-2 text-[13.5px] md:text-[14px] leading-snug">
+                      Planners, templates, e-books, and more — all in one place.
+                    </p>
+                  </div>
+                  <div className="mt-6 opacity-20 self-end">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#2C2C2C]/10" />
+                  </div>
+                </article>
+
+                {/* CORAL — col 2, row 3 */}
+                <article
+                  className="
+                    rounded-[28px] bg-[#FF6F3C] text-white p-5 md:p-6
+                    grid place-content-between relative
+                    sm:col-start-2 sm:row-start-3
+                    min-h-[150px]
+                  "
+                >
+                  <div>
+                    <h3 className="font-['Pacifico'] text-[24px] md:text-[26px] leading-tight">
+                      Affordable &amp; Accessible
+                    </h3>
+                    <p className="mt-2 text-[13.5px] md:text-[14px] leading-snug">
+                      High-quality digital products without breaking the bank.
+                    </p>
+                  </div>
+                  <div className="mt-6 opacity-20 self-end">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/25" />
+                  </div>
+                </article>
               </div>
 
-              {/* Grid */}
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {/* Card 1 */}
-          <div className="relative rounded-[26px] bg-[#F15A29] text-white p-6 
-                          shadow-[0_18px_0_rgba(0,0,0,0.25),0_14px_28px_rgba(0,0,0,0.15)]
-                          border-2 border-black/40">
-            {/* <Star className="text-white -top-2 -left-2 rotate-[-12deg]" />
-            <Star className="text-white -bottom-2 -right-1 rotate-[18deg]" /> */}
-            <h3 className="pacifico-text font-extrabold text-[22px] mb-1 ">Safe &amp; Secure</h3>
-            <p className="text-[14px] leading-snug opacity-95">
-              Smooth checkout and instant digital downloads.
-            </p>
-            {/* faint emblem */}
-            <div className="absolute right-4 bottom-3 opacity-20 pointer-events-none">
-              <div className="w-16 h-16 rounded-xl bg-white/20" />
-            </div>
-          </div>
 
-          {/* Card 2 (yellow) */}
-          <div className="relative rounded-[26px] p-6 
-                          bg-gradient-to-b from-[#FFD166] to-[#FFC54D] text-[#2C2C2C]
-                          shadow-[0_18px_0_rgba(0,0,0,0.25),0_14px_28px_rgba(0,0,0,0.15)]
-                          border-2 border-black/40">
-            {/* <Star className="text-white -top-2 -right-2 rotate-[12deg]" /> */}
-            <h3 className="font-['Pacifico'] text-black text-[22px] mb-1 ">Built for Everyone</h3>
-            <p className="text-[14px] leading-tight font-semibold">
-              From students and freelancers to busy professionals, Creazone makes
-              planning, organizing, and creating easier with digital products designed
-              to fit every lifestyle.
-            </p>
-            <div className="absolute right-4 bottom-3 opacity-20 pointer-events-none">
-              <div className="w-16 h-16 rounded-xl bg-black/10" />
-            </div>
-          </div>
 
-          {/* Card 3 (white) */}
-          <div className="relative rounded-[26px] bg-white text-[#2C2C2C] p-6 
-                          shadow-[0_18px_0_rgba(0,0,0,0.2),0_12px_24px_rgba(0,0,0,0.12)]
-                          border-2 border-black/30">
-            {/* <Star className="text-[#ff6533] -top-2 -right-2 rotate-[18deg]" />
-            <Star className="text-[#ff6533] -bottom-2 -left-2 rotate-[-18deg]" /> */}
-            <h3 className="pacifico-text-bl font-extrabold text-black text-[22px] mb-1">Creative Variety</h3>
-            <p className="text-[14px] leading-snug">
-              Planners, templates, e-books, and more — all in one place.
-            </p>
-            <div className="absolute right-4 bottom-3 opacity-20 pointer-events-none">
-              <div className="w-16 h-16 rounded-full bg-[#2C2C2C]/10" />
-            </div>
-          </div>
-
-          {/* Card 4 (coral) */}
-          <div className="relative rounded-[26px] bg-[#ff6a4f] text-white p-6 
-                          shadow-[0_18px_0_rgba(0,0,0,0.25),0_14px_28px_rgba(0,0,0,0.15)]
-                          border-2 border-black/40">
-            {/* <Star className="text-white -top-2 -left-1 rotate-[10deg]" />
-            <Star className="text-white -bottom-2 -right-2 rotate-[-8deg]" /> */}
-            <h3 className="font-extrabold text-[22px] mb-1 pacifico-text">
-              Affordable &amp; Accessible
-            </h3>
-            <p className="text-[14px] leading-snug">
-              High-quality digital products without breaking the bank.
-            </p>
-            <div className="absolute right-4 bottom-3 opacity-20 pointer-events-none">
-              <div className="w-16 h-16 rounded-xl bg-white/20" />
-            </div>
-          </div>
-        </div>
               
               {/* <div className="features-grid">
                 <div className="feature-card safe-secure">
