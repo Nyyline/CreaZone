@@ -22,7 +22,7 @@ function About() {
       </div>
 
       <section className='section2-and-section3'>
-        <section className='bg-white/80 w-full h-[50%] flex flex-row'>
+        <section className='w-full h-[50%] flex flex-row'>
           <div className=' w-[50%] h-[100%] flex flex-col items-center justify-center !mt-10 !ml-30 '>
           <div className='flex flex-col items-end !mr-15 justify-center'>
             <div className='flex !mr-16 !mb-5'>
@@ -59,10 +59,10 @@ function About() {
             
         </section>
 
-          <section className='bg-black/80 w-full h-[50%] flex items-center justify-center'>
+          <section className=' w-full h-[50%] flex items-center justify-center'>
            <div className='flex flex-col items-center text-center justify-center h-full !mt-30'>
-             <h2 className='font-[pacifico] text-7xl text-white !mb-5'>Our Promise</h2>
-             <p className='font-[poppins] text-2xl text-white font-regular w-[70%]'>"At Creazone, we promise to empower both creators and customers. For freelancers and sellers, we provide a trusted platform to share and sell digital products with ease. For buyers, we ensure every product is accessible, affordable, and designed to spark creativity. Together, we're building a marketplace where ideas turn into opportunities.</p>
+             <h2 className='font-[pacifico] text-7xl text-white !mb-5 text-shadow-lg/20'>Our Promise</h2>
+             <p className='font-[poppins] text-2xl text-white font-regular w-[70%] text-shadow-lg/20'>"At Creazone, we promise to empower both creators and customers. For freelancers and sellers, we provide a trusted platform to share and sell digital products with ease. For buyers, we ensure every product is accessible, affordable, and designed to spark creativity. Together, we're building a marketplace where ideas turn into opportunities.</p>
            </div>
           </section>
 
