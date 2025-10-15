@@ -142,8 +142,8 @@ function Home() {
                   col-start-1 row-start-1
                   sm:col-start-1 sm:row-start-1
                   flex items-center justify-center
-                  h-[60px] sm:h-[100px]          /* sticker tile height */
-                  mt-0 sm:mt-[14px]                   /* same vertical offset as yellow */
+                  h-[60px] sm:h-[100px]          
+                  mt-0 sm:mt-[14px]                  
                 ">
                   <MemoizedImage
                     src={features}

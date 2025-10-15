@@ -99,3 +99,197 @@
     height: 1px;
     border-top: 1px dashed #2C2C2C;
   }
+
+   /* section2 and section3 */
+   .section2-and-section3 {
+     flex: 1;
+     background-image: url('../assets/about/section 2-3.svg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     justify-content: center;
+     width: 100%;
+     height: 1811px;
+     position: relative;
+     overflow: hidden;
+     z-index: 1;
+   }
+
+   /* Bento Grid Overlay */
+   .bento-grid-overlay {
+     display: grid;
+     grid-template-columns: 2fr 1fr;
+     gap: 2rem;
+     padding: 4rem 2rem;
+     max-width: 1200px;
+     margin: 0 auto;
+     width: 100%;
+     position: relative;
+     z-index: 2;
+   }
+
+   /* Main content card (left side) */
+   .bento-main-card {
+     background: white;
+     border-radius: 20px;
+     border: 5px solid #1ABC9C;
+     padding: 3rem;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+   }
+
+   .bento-content {
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+   }
+
+
+   .bento-title-inline {
+     font-family: 'Pacifico', cursive;
+     font-size: 4rem;
+     color: #fff;
+     display: flex;
+     align-items: center;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     white-space: nowrap;
+     text-align: center;
+   }
+
+   
+
+   .bento-logo {
+     margin-bottom: 2rem;
+   }
+
+   .bento-logo-text {
+     font-family: 'Pacifico', cursive;
+     font-size: 3rem;
+     color: #FF6F3C;
+     text-shadow: 2px 2px 0px white;
+   }
+
+   .bento-text-content {
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+   }
+
+   .bento-paragraph {
+     font-family: 'Poppins', sans-serif;
+     font-size: 1.1rem;
+     line-height: 1.6;
+     color: #2C2C2C;
+   }
+
+   .bento-tagline {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     font-family: 'Poppins', sans-serif;
+     font-weight: 600;
+     font-size: 1.2rem;
+     color: #2C2C2C;
+     margin-top: 1rem;
+   }
+
+   .bento-sparkle {
+     font-size: 1.5rem;
+   }
+
+   /* Right column with mission and vision cards */
+   .bento-right-column {
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+   }
+
+   /* Mission card */
+   .bento-mission-card {
+     background: #FF6F3C;
+     border-radius: 20px;
+     padding: 2rem;
+     position: relative;
+     overflow: hidden;
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+   }
+
+   /* Vision card */
+   .bento-vision-card {
+     background: #20b2aa;
+     border-radius: 20px;
+     padding: 2rem;
+     position: relative;
+     overflow: hidden;
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+   }
+
+   .bento-card-title {
+     font-family: 'Pacifico', cursive;
+     font-size: 2.8rem;
+     color: white;
+     margin-bottom: .8rem;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   }
+
+   .bento-card-text {
+     font-family: 'Poppins', sans-serif;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     font-size: 1.4rem;
+     line-height: 1.5;
+     color: white;
+     margin-bottom: 1rem;
+   }
+
+   .bento-card-icon {
+     position: absolute;
+     bottom: 1rem;
+     right: 1rem;
+     font-size: 3rem;
+     opacity: 0.3;
+   }
+
+   /* Mobile responsive */
+   @media (max-width: 768px) {
+     .bento-grid-overlay {
+       grid-template-columns: 1fr;
+       padding: 2rem 1rem;
+       gap: 1.5rem;
+     }
+
+     .bento-main-card {
+       padding: 2rem;
+     }
+
+     .bento-title {
+       font-size: 2rem;
+     }
+
+     .bento-logo-text {
+       font-size: 2.5rem;
+     }
+
+     .bento-paragraph {
+       font-size: 1rem;
+     }
+
+     .bento-mission-card,
+     .bento-vision-card {
+       padding: 1.5rem;
+     }
+
+     .bento-card-title {
+       font-size: 1.5rem;
+     }
+   }
