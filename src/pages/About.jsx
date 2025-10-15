@@ -22,8 +22,49 @@ function About() {
       </div>
 
       <section className='section2-and-section3'>
-        <section className='w-full h-[50%] flex flex-row'>
-          <div className=' w-[50%] h-[100%] flex flex-col items-center justify-center !mt-10 !ml-30 '>
+        <section className='w-full h-[50%] flex flex-row '>
+
+        {/* Mobile Layout */}
+        <div className=' w-[100%] h-[50%] flex flex-col items-center justify-center  md:hidden !mt-7'>
+          <div className='flex flex-col items-center justify-center'>
+            <div className='flex'>
+                <h2 className='bento-title-inline '>Who is<img src={creazone} alt="creazone" className='w-[130px] h-[70px] !mt-3 '/>?</h2>
+                </div>
+            
+            <div className='bg-white border-2 rounded-3xl border-[#1ABC9C] w-[95%] h-[70%] !p-4 '>
+              <div className='w-full h-full flex flex-row gap-3'>
+              <p className='font-[poppins] text-[10.5px]  font-semibold mb-4'>Creazone is more than just a digital shop - it's a community built for creators, dreamers, and doers. We provide digital planners, templates, e-books, and creative tools designed to make life easier, more organized, and more inspiring.</p>
+              <p className='font-[poppins] text-[10.5px] font-semibold mb-4'>Our name comes from 'Create' + 'Zone' - a space where imagination and productivity come together. Whether you're a student, entrepreneur, or hobbyist, Creazone is here to help you design your own path, your own way. 
+                <br/>
+                <br/>
+                <p className='text-[9px]'>✨ Shop Digital. Sell Creative.</p>
+              </p>
+              
+              </div>
+            </div>
+                
+          </div>
+             
+        </div>
+
+        {/* Mobile Mission/Vision Cards */}
+        <div className=' w-[100%] h-[50%] flex flex-row items-start justify-center !mt-5 gap-3 md:hidden  !pl-7 !pr-7'>
+          <div className='bg-[#FF6F3C] border-2 border-white w-[55%] !h-[80%] rounded-xl !p-3 relative overflow-hidden'>
+            <h2 className='bento-card-title'>Our Mission</h2>
+            <p className='bento-card-text font-semibold !text-[10px] w-[100%] !pb-3'>To provide a safe, vibrant space where creativity thrives and digital products become accessible to everyone.</p>
+            <Rocket className='absolute bottom-2 right-2 w-80 h-80 text-white opacity-30 left-65 top-10' />
+          </div>
+
+          <div className='bg-[#1ABC9C] border-2 border-white w-[55%] !h-[80%] rounded-xl !p-3 relative overflow-hidden'>
+            <h2 className='bento-card-title'>Our Vision</h2>
+            <p className='bento-card-text font-semibold !text-[10px] w-[100%]'>To become the go-to hub for planners, templates, e-books, and creative resources worldwide.</p>
+            <Lightbulb className='absolute bottom-2 right-2 w-80 h-80 text-white opacity-30 left-75 top-8 rotate-18' />
+          </div>
+            
+        </div>
+
+          {/* desktop layout */}
+          <div className=' w-[50%] h-[100%] flex flex-col items-center justify-center !mt-10 md:!ml-30 !ml-0  hidden md:flex'>
           <div className='flex flex-col items-end !mr-15 justify-center'>
             <div className='flex !mr-16 !mb-5'>
                 <h2 className='bento-title-inline '>Who is<img src={creazone} alt="creazone" className='w-[250px] h-[100px] !mt-3 '/>?</h2>
@@ -31,7 +72,7 @@ function About() {
 
                 <div className='bento-main-card w-[75%] '>
                   <div className='bento-content'>
-                    <p className='font-[poppins] text-[23px] font-semibold mb-4'>Creazone is more than just a digital shop - it's a community built for creators, dreamers, and doers. We provide digital planners, templates, e-books, and creative tools designed to make life easier, more organized, and more inspiring.</p>
+                    <p className='font-[poppins] text-[23px]  font-semibold mb-4'>Creazone is more than just a digital shop - it's a community built for creators, dreamers, and doers. We provide digital planners, templates, e-books, and creative tools designed to make life easier, more organized, and more inspiring.</p>
                       
                     <p className='font-[poppins] text-[23px] font-semibold mb-4'>Our name comes from 'Create' + 'Zone' - a space where imagination and productivity come together. Whether you're a student, entrepreneur, or hobbyist, Creazone is here to help you design your own path, your own way.</p>
                     <p className='font-[poppins]  font-semibold'>✨ Shop Digital. Sell Creative.</p>
@@ -41,7 +82,7 @@ function About() {
              
           </div>
 
-          <div className=' w-[50%] h-[100%] flex flex-col items-start justify-center !mt-10 gap-7'>
+          <div className=' w-[50%] h-[100%] flex flex-col items-start justify-center !mt-10 gap-7 hidden md:flex !hidden md:!flex'>
             <div className='bg-[#FF6F3C] border-5 border-white w-[65%] h-[38%] rounded-3xl !p-10 relative overflow-hidden'>
               <h2 className='bento-card-title'>Our Mission</h2>
               <p className='bento-card-text font-semibold w-[75%]'>To provide a safe, vibrant space where creativity thrives and digital products become accessible to everyone.</p>
@@ -54,7 +95,7 @@ function About() {
               <Lightbulb className='absolute bottom-2 right-2 w-80 h-80 text-white opacity-30 left-75 top-8 rotate-18' />
             </div>
               
-            </div>
+          </div>
 
             
         </section>

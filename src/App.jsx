@@ -65,38 +65,7 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="mobile-menu-overlay" onClick={() => setIsMobileMenuOpen(false)}>
-          <div className="mobile-menu" onClick={(e) => e.stopPropagation()}>
-            <div className="mobile-menu-header">
-              <h3>Menu</h3>
-              <button 
-                className="close-btn"
-                onClick={() => setIsMobileMenuOpen(false)}
-                aria-label="Close menu"
-              >
-                ×
-              </button>
-            </div>
-            <div className="mobile-menu-links">
-              <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-                Home
-              </Link>
-              <Link to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-                About
-              </Link>
-              <Link to="/shop" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-                Shop
-              </Link>
-              <div className="mobile-login-section">
-                <button className="mobile-login-btn">
-                  Login
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      
     </>
   )
 }
