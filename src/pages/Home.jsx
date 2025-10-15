@@ -46,8 +46,6 @@ function Home() {
   return (
     <main id='background'>
       
-      
-      
       <section className="main-content">
         <div className='hero-container'>
           <div className='hero-text-section'>
