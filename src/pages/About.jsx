@@ -100,11 +100,9 @@ function About() {
             
         </section>
 
-          <section className=' w-full h-[50%] flex items-center justify-center'>
-           <div className='flex flex-col items-center text-center justify-center h-full !mt-30'>
-             <h2 className='font-[pacifico] text-7xl text-white !mb-5 text-shadow-lg/20'>Our Promise</h2>
-             <p className='font-[poppins] text-2xl text-white font-regular w-[70%] text-shadow-lg/20'>"At Creazone, we promise to empower both creators and customers. For freelancers and sellers, we provide a trusted platform to share and sell digital products with ease. For buyers, we ensure every product is accessible, affordable, and designed to spark creativity. Together, we're building a marketplace where ideas turn into opportunities.</p>
-           </div>
+          <section className=' w-full h-[50%] flex flex-col md:flex-row items-center text-center justify-center !mt-10 gap-3 md:gap-10'>
+             <h2 className='font-[pacifico] text-4xl md:text-7xl text-white text-shadow-lg/20'>Our Promise</h2>
+             <p className='font-[poppins] text-sm md:text-2xl text-white font-regular w-[90%] md:w-[70%] text-shadow-lg/20'>"At Creazone, we promise to empower both creators and customers. For freelancers and sellers, we provide a trusted platform to share and sell digital products with ease. For buyers, we ensure every product is accessible, affordable, and designed to spark creativity. Together, we're building a marketplace where ideas turn into opportunities."</p>
           </section>
 
 

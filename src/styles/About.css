@@ -392,11 +392,11 @@
 
     /* Our Promise section mobile */
     .section2-and-section3 > section:last-child h2 {
-      font-size: 3rem !important;
+      font-size: 2rem !important;
     }
 
     .section2-and-section3 > section:last-child p {
-      font-size: 1.2rem !important;
+      font-size: .8rem !important;
       width: 90% !important;
     }
 
