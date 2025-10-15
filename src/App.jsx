@@ -24,7 +24,9 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
           {/* Left Side - Login and Headphones */}
           <div className="header-left">
             <span className="login-text">Login</span>
-            
+            <Link to="/" className="logo-mobile">
+              <img src={logoImage} alt="logo" />
+            </Link>
           </div>
 
           {/* Center - Logo */}
@@ -47,6 +49,11 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
           </div>
         </div>
       </header>
+
+      {/* Green line for mobile view */}
+      <div className='green-line-mobile'>
+        <div className='green-line-content'></div>
+      </div>
 
       {/* Navigation Bar */}
       <nav className="nav-bar">

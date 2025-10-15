@@ -1,13 +1,10 @@
-import { useState } from 'react'
-import { HiShoppingCart } from 'react-icons/hi'
-import { MdHeadphones } from 'react-icons/md'
-import { FaDiamond } from 'react-icons/fa6'
+import { useState, useCallback, useMemo, memo } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Shield, Users, Palette, ShoppingBag } from "lucide-react"
 import things from '../assets/home/things.svg'
 import Group29 from '../assets/home/Group 29.svg'
 import creazone from '../assets/LOGO 1.svg'
 import features from '../assets/home/Features.svg'
-import { Shield, Users, Palette, ShoppingBag } from "lucide-react";
 import products from '../assets/home/products title.svg'
 import tablet from '../assets/home/tablet-mockup-with-blank-screen_410639-117 1.svg'
 import slider1 from '../assets/home/tablet photos/planners.svg'
@@ -19,25 +16,36 @@ import otherMobile from '../assets/home/tablet photos/other_m.svg'
 
 
 
+// Memoized components for better performance
+const MemoizedImage = memo(({ src, alt, className, loading = "lazy" }) => (
+  <img src={src} alt={alt} className={className} loading={loading} />
+))
+
+const MemoizedIcon = memo(({ Icon, className, size }) => (
+  <Icon className={className} size={size} />
+))
+
 function Home() {
-  // Image slider state
-  const sliderImages = [slider1, slider2, slider3]
+  // Image slider state - memoized for performance
+  const sliderImages = useMemo(() => [slider1, slider2, slider3], [])
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  const nextImage = () => {
+  // Optimized event handlers with useCallback
+  const nextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => 
       prevIndex === sliderImages.length - 1 ? 0 : prevIndex + 1
     )
-  }
+  }, [sliderImages.length])
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => 
       prevIndex === 0 ? sliderImages.length - 1 : prevIndex - 1
     )
-  }
+  }, [sliderImages.length])
 
   return (
     <main id='background'>
+      
       
       
       <section className="main-content">
@@ -74,8 +82,8 @@ function Home() {
           </div>
 
           <div className='product-showcase'>
-             <img src={things} alt="Product Showcase" className="mobile-showcase" />
-             <img src={Group29} alt="Product Showcase" className="desktop-showcase" />
+             <MemoizedImage src={things} alt="Product Showcase" className="mobile-showcase" loading="eager" />
+             <MemoizedImage src={Group29} alt="Product Showcase" className="desktop-showcase" loading="eager" />
           </div>
         </div>
 
@@ -97,7 +105,7 @@ function Home() {
             <div className="why-creazone-content text-center sm:text-left w-full max-w-md mx-auto">
               <div className="why-title">
                 <span className="why-text">Why</span>
-                <img src={creazone} alt="CreaZone" className="w-32 sm:w-50 lg:w-65" />
+                <MemoizedImage src={creazone} alt="CreaZone" className="w-32 sm:w-50 lg:w-65" loading="eager" />
                 <span className="question-mark">?</span>
               </div>
               
@@ -139,10 +147,11 @@ function Home() {
                   h-[60px] sm:h-[100px]          /* sticker tile height */
                   mt-0 sm:mt-[14px]                   /* same vertical offset as yellow */
                 ">
-                  <img
+                  <MemoizedImage
                     src={features}
                     alt="Features"
                     className="w-[220px] h-[60px] sm:w-[260px] sm:h-[100px] relative top-[0px] sm:top-[30px]"
+                    loading="eager"
                   />
                 </div>
 
@@ -171,7 +180,7 @@ function Home() {
                   </div>
 
                   {/* emblem stays bottom-right */}
-                  <Users className="absolute -right-2 -bottom-3 sm:-right-3 sm:-bottom-5 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-black/10 pointer-events-none" />
+                  <MemoizedIcon Icon={Users} className="absolute -right-2 -bottom-3 sm:-right-3 sm:-bottom-5 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-black/10 pointer-events-none" />
                 </article>
 
                 {/* ORANGE — col 1, row 2 */}
@@ -193,7 +202,7 @@ function Home() {
                     </p>
                   </div>
 
-                  <Shield className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
+                  <MemoizedIcon Icon={Shield} className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
                 </article>
 
                 {/* WHITE — col 1, row 3 */}
@@ -215,7 +224,7 @@ function Home() {
                       Planners, templates, e-books, and more — all in one place.
                     </p>
                   </div>
-                  <Palette className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-[#2C2C2C]/10 pointer-events-none" />
+                  <MemoizedIcon Icon={Palette} className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-[#2C2C2C]/10 pointer-events-none" />
                 </article>
 
                 {/* CORAL — col 2, row 3 */}
@@ -237,7 +246,7 @@ function Home() {
                       High-quality digital products without breaking the bank.
                     </p>
                   </div>
-                  <ShoppingBag className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
+                  <MemoizedIcon Icon={ShoppingBag} className="absolute -right-3 -bottom-2 sm:-right-5 sm:-bottom-3 w-12 h-12 sm:w-20 sm:h-20 md:w-30 md:h-30 text-white/20 pointer-events-none" />
                 </article>
 
               </div>
@@ -250,29 +259,29 @@ function Home() {
         <div className='flex justify-center items-center flex-col'>
           {/* Desktop: Products title */}
           <div className='relative w-[70rem] h-[33rem] hidden sm:block'>
-            <img src={products} alt="main-content" className='!mt-70' />
+            <MemoizedImage src={products} alt="main-content" className='!mt-70' loading="eager" />
           </div>
 
           {/* Mobile: Three product cards */}
           <div className='flex flex-col sm:hidden w-full px-4 py-4 gap-2'>
           <div className='flex justify-center items-center w-full  sm:hidden'>
-            <img src={products} alt="main-content" className='w-350 h-auto !mt-20 ' />
+            <MemoizedImage src={products} alt="main-content" className='w-350 h-auto !mt-20 ' loading="eager" />
           </div>
             
             <div className='flex flex-row gap-2 justify-center items-center max-w-sm align-center !mb-[50%] !ml-4 '>
               {/* Planners Card */}
               <div className='flex items-center justify-center'>
-                <img src={plannerMobile} alt="Planners" className='w-full h-full object-cover' />
+                <MemoizedImage src={plannerMobile} alt="Planners" className='w-full h-full object-cover' loading="lazy" />
               </div>
               
               {/* Posters Card */}
               <div className='flex items-center justify-center'>
-                <img src={posterMobile} alt="Posters" className='w-full h-full object-cover' />
+                <MemoizedImage src={posterMobile} alt="Posters" className='w-full h-full object-cover' loading="lazy" />
               </div>
               
               {/* Others Card */}
               <div className='flex items-center justify-center'>
-                <img src={otherMobile} alt="Others" className='w-full h-full object-cover' />
+                <MemoizedImage src={otherMobile} alt="Others" className='w-full h-full object-cover' loading="lazy" />
               </div>
             </div>
           </div>
@@ -280,14 +289,15 @@ function Home() {
           {/* Desktop: Tablet slider */}
           <div className='relative tablet-container hidden sm:block'>
             {/* Tablet frame */}
-            <img src={tablet} alt="tablet-frame" className='tablet-frame' />
+            <MemoizedImage src={tablet} alt="tablet-frame" className='tablet-frame' loading="eager" />
             
             {/* Image slider inside tablet */}
             <div className='tablet-screen'>
-              <img 
+              <MemoizedImage 
                 src={sliderImages[currentImageIndex]} 
                 alt={`slider-${currentImageIndex + 1}`} 
                 className='slider-image'
+                loading="eager"
               />
             </div>
             
@@ -297,7 +307,7 @@ function Home() {
               className='slider-arrow slider-arrow-left'
               aria-label="Previous image"
             >
-              <ChevronLeft size={24} />
+              <MemoizedIcon Icon={ChevronLeft} size={24} />
             </button>
             
             <button 
@@ -305,7 +315,7 @@ function Home() {
               className='slider-arrow slider-arrow-right'
               aria-label="Next image"
             >
-              <ChevronRight size={24} />
+              <MemoizedIcon Icon={ChevronRight} size={24} />
             </button>
           </div>
         </div>
@@ -313,8 +323,8 @@ function Home() {
       </section>
 
       <section className="main-content4">
-        <div className="flex items-center justify-center w-[100vw] h-[100vh]">
-          <div className="text-center !mt-[96%] !mb-[100%]">
+        <div className="flex items-center justify-center w-[100%] h-[100%] ">
+          <div className="text-center !mt-[96%] !mb-[100%]  ">
             <h2 className="text-white text-3xl md:text-6xl font-bold mb-6 leading-[1] ">
               Ready to shop or<br />
               sell your creativity?
@@ -329,4 +339,5 @@ function Home() {
   )
 }
 
-export default Home
+// Memoize the entire Home component to prevent unnecessary re-renders
+export default memo(Home)
