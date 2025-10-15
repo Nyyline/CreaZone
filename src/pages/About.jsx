@@ -37,7 +37,7 @@ function About() {
               <p className='font-[poppins] text-[10.5px] font-semibold mb-4'>Our name comes from 'Create' + 'Zone' - a space where imagination and productivity come together. Whether you're a student, entrepreneur, or hobbyist, Creazone is here to help you design your own path, your own way. 
                 <br/>
                 <br/>
-                <p className='text-[9px]'>✨ Shop Digital. Sell Creative.</p>
+                <span className='text-[9px]'>✨ Shop Digital. Sell Creative.</span>
               </p>
               
               </div>
