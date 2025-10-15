@@ -34,7 +34,7 @@ function About() {
                     <p className='font-[poppins] text-[23px] font-semibold mb-4'>Creazone is more than just a digital shop - it's a community built for creators, dreamers, and doers. We provide digital planners, templates, e-books, and creative tools designed to make life easier, more organized, and more inspiring.</p>
                       
                     <p className='font-[poppins] text-[23px] font-semibold mb-4'>Our name comes from 'Create' + 'Zone' - a space where imagination and productivity come together. Whether you're a student, entrepreneur, or hobbyist, Creazone is here to help you design your own path, your own way.</p>
-                    <p className='font-[poppins] text-2l font-semibold'>✨ Shop Digital. Sell Creative.</p>
+                    <p className='font-[poppins]  font-semibold'>✨ Shop Digital. Sell Creative.</p>
                   </div>
                 </div>
           </div>
