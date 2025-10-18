@@ -105,7 +105,7 @@ function Shop() {
     }
   ]
 
-  const categories = ['All', 'Planners', 'Journals', 'Printables', 'Calendars', 'Templates']
+  const categories = ['All', 'Planners', 'Journals', 'Printables', 'Calendars', 'Templates', 'Notebooks', 'Workbooks', 'Banners', 'Stickers', 'Art', 'E-books']
 
   const addToCart = () => {
     // Add to cart functionality
@@ -160,15 +160,15 @@ function Shop() {
             <div key={product.id} className="product-card">
               <div className="product-image">
                 <img src={product.image} alt={product.name} />
+                <div className="product-price-overlay">{product.price}</div>
               </div>
               <div className="product-info">
                 <h3 className="product-title">{product.name}</h3>
                 <p className="product-description">{product.description}</p>
-                <div className="product-price">{product.price}</div>
-                <button className="buy-now-button" onClick={addToCart}>
+              </div>
+              <button className="buy-now-button" onClick={addToCart}>
                   Buy Now
                 </button>
-              </div>
             </div>
           ))}
         </div>
