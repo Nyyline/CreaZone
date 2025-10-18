@@ -154,7 +154,7 @@ html, body {
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 20px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -169,7 +169,8 @@ html, body {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 450px;
+    width: 95%;
 }
 
 .product-card:hover {
