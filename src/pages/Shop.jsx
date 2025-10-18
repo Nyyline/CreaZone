@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { HiMenu, HiSearch } from 'react-icons/hi'
+import '../styles/Shop.css'
 
 function Shop() {
   const [searchTerm, setSearchTerm] = useState('')
