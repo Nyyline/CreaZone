@@ -7,6 +7,7 @@ import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
 import Shop from './pages/Shop'
+import ProductPage from './pages/ProductPage'
 
 // Navigation Component
 function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
@@ -119,6 +120,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:id" element={<ProductPage />} />
         </Routes>
              </div>
     </Router>

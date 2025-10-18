@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { HiMenu, HiSearch } from 'react-icons/hi'
-import '../styles/Shop.css'
+import React from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import '../styles/ProductP.css'
 
-function Shop() {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('All')
+const ProductPage = () => {
+  const { id } = useParams()
   const navigate = useNavigate()
 
-  // Sample products data based on the design
+  // Sample products data (same as in Shop.jsx - in a real app, this would be fetched from an API)
   const products = [
     {
       id: 1,
@@ -108,102 +106,48 @@ function Shop() {
     }
   ]
 
-  const categories = ['All', 'Planners', 'Journals', 'Printables', 'Calendars', 'Templates', 'Notebooks', 'Workbooks', 'Banners', 'Stickers', 'Art', 'E-books']
+  // Find the product by ID
+  const product = products.find(p => p.id === parseInt(id))
 
-  const addToCart = () => {
-    // Add to cart functionality
-    console.log('Added to cart')
+  if (!product) {
+    return (
+      <main className="product-page-main">
+        <div className="product-not-found">
+          <h2>Product not found</h2>
+          <button onClick={() => navigate('/shop')}>Back to Shop</button>
+        </div>
+      </main>
+    )
   }
 
-  const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`)
+  const handleAddToCart = () => {
+    // Add to cart functionality
+    console.log('Added to cart:', product.name)
   }
 
   return (
-    <main className="shop-main">
-      {/* Header Section */}
-      <header className="shop-header">
-        {/* Search Section */}
-        <div className="search-section">
-          <div className="search-container">
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              className="search-input"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button className="search-button">
-              <HiSearch size={20} />
-              Search
+    <main className="product-page-main">
+      <section className="product-page-section">
+        <div className="product-container">
+          <div className="product-image-container">
+            <img src={product.image} alt={product.name} className="product-main-image" />
+          </div>
+          <div className="product-details">
+            <h1 className="product-title">{product.name}</h1>
+            <p className="product-category">{product.category}</p>
+            <p className="product-description">{product.description}</p>
+            <div className="product-price">{product.price}</div>
+            <button className="add-to-cart-button" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
+            <button className="back-to-shop-button" onClick={() => navigate('/shop')}>
+              Back to Shop
             </button>
           </div>
         </div>
-        
-        {/* Filters Section */}
-        <div className="filters-section">
-          <button className="menu-button">
-            <HiMenu size={24} />
-          </button>
-          
-          <div className="category-filters">
-            {categories.map(category => (
-              <button 
-                key={category}
-                className={`category-filter ${selectedCategory === category ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </header>
-
-      {/* Product Grid */}
-      <section className="products-section">
-        <div className="products-grid">
-          {products.map(product => (
-            <div key={product.id} className="product-card" onClick={() => handleProductClick(product.id)}>
-              <div className="product-image">
-                <img src={product.image} alt={product.name} />
-                <div className="product-price-overlay">{product.price}</div>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">{product.name}</h3>
-                <p className="product-description">{product.description}</p>
-              </div>
-              <button className="buy-now-button" onClick={(e) => {
-                e.stopPropagation()
-                addToCart()
-              }}>
-                  Buy Now
-                </button>
-            </div>
-          ))}
-        </div>
       </section>
-
-      {/* Pagination */}
-      <div className="pagination">
-        <button className="pagination-button">
-          ← Previous
-        </button>
-        <div className="pagination-numbers">
-          <span className="page-number active">1</span>
-          <span className="page-number">2</span>
-          <span className="page-number">3</span>
-          <span className="page-dots">...</span>
-          <span className="page-number">8</span>
-          <span className="page-number">9</span>
-          <span className="page-number">10</span>
-        </div>
-        <button className="pagination-button">
-          Next →
-        </button>
-      </div>
     </main>
   )
 }
 
-export default Shop
+export default ProductPage
