@@ -2,6 +2,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { HiMenu, HiSearch } from 'react-icons/hi'
 import '../styles/Shop.css'
+import product1Image from '../assets/PRODUCTS/product 1.webp'
+import product2Image from '../assets/PRODUCTS/Fall-Digital-Planner.jpg'
+import product3Image from '../assets/PRODUCTS/images.jfif'
+import product4Image from '../assets/PRODUCTS/medium_17_4c7a359734.png'
+// import product5Image from '../assets/PRODUCTS/product 5.webp'
+
 
 function Shop() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -15,7 +21,7 @@ function Shop() {
       id: 1,
       name: "Essential Digital Product Planner",
       price: "P179",
-      image: "https://via.placeholder.com/300x200/FFFFFF/333333?text=Digital+Product+Planner",
+      image: product1Image,
       description: "Plan, organize, and launch your digital products with this comprehensive planner.",
       category: "Planners"
     },
@@ -23,7 +29,7 @@ function Shop() {
       id: 2,
       name: "Fall Into Planning Digital Journal",
       price: "P149",
-      image: "https://via.placeholder.com/300x200/FFB6C1/333333?text=Fall+Journal",
+      image: product2Image,
       description: "A cozy-themed digital journal perfect for autumn planning.",
       category: "Journals"
     },
@@ -31,31 +37,31 @@ function Shop() {
       id: 3,
       name: "Minimalist Monthly Agenda Printables",
       price: "P129",
-      image: "https://via.placeholder.com/300x200/F0F0F0/333333?text=Monthly+Agenda",
+      image: product3Image,
       description: "Clean, simple monthly templates for organized planning.",
       category: "Printables"
     },
     {
       id: 4,
-      name: "Minimalist Monthly Agenda Printables",
-      price: "P129",
-      image: "https://via.placeholder.com/300x200/F0F0F0/333333?text=Monthly+Agenda",
-      description: "Clean, simple monthly templates for organized planning.",
-      category: "Printables"
+      name: "Digital Art Sticker Pack",
+      price: "P89",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Vf2sgEq2OE0N1qAGCr8TIUZDv34G6NPErA&s",
+      description: "Cute digital stickers for planners, journals, and social media.",
+      category: "Stickers"
     },
     {
       id: 5,
       name: "2024 Aesthetic Calendar Pack",
       price: "P139",
-      image: "https://via.placeholder.com/300x200/FFB6C1/333333?text=2024+Calendar",
+      image: product4Image,
       description: "Printable digital calendar with beautiful aesthetic design.",
       category: "Calendars"
     },
     {
       id: 6,
-      name: "Content Creator's Social Media Kit",
+      name: "Digital Product Mockup Templates",
       price: "P199",
-      image: "https://via.placeholder.com/300x200/E6E6FA/333333?text=Social+Media+Kit",
+      image: "https://www.thecreativesdesk.com/wp-content/uploads/digital-mockup-pinterest-canva-templates.jpg",
       description: "Templates and checklists designed for content creators.",
       category: "Templates"
     },
@@ -63,23 +69,23 @@ function Shop() {
       id: 7,
       name: "Diario Girls Digital Notebook",
       price: "P149",
-      image: "https://via.placeholder.com/300x200/FFB6C1/333333?text=Diario+Girls",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKB4_hgJN8orPeD3ZeJQrCGp2xim8ivXJV_g&s",
       description: "A fun and trendy digital notebook for girls.",
       category: "Notebooks"
     },
     {
       id: 8,
-      name: "Diario Girls Digital Notebook",
-      price: "P149",
-      image: "https://via.placeholder.com/300x200/FFB6C1/333333?text=Diario+Girls",
-      description: "A fun and trendy digital notebook for girls.",
-      category: "Notebooks"
+      name: "Digital Watercolor Brush Set",
+      price: "P199",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDuDY89LLj_RNWQlmi8Ajse4dnUdmBCP_ENg&s",
+      description: "Professional watercolor brushes for digital art and design.",
+      category: "Art"
     },
     {
       id: 9,
       name: "Dreamy Pastel Stream Banner",
       price: "P350",
-      image: "https://via.placeholder.com/300x200/E6E6FA/333333?text=Stream+Banner",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGbtUqjuziDO87OGVwZ6eVSSSULk0AcNC1fA&s",
       description: "Cute pastel-themed planner to enhance your streams.",
       category: "Banners"
     },
@@ -87,7 +93,7 @@ function Shop() {
       id: 10,
       name: "Business Brand Strategy Workbook",
       price: "P189",
-      image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Business+Workbook",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmUzqbB4nRJu5C0e0akeCdS5pTV4QeKu2yhw&s",
       description: "Professional digital guide to help build your brand strategy.",
       category: "Workbooks"
     },
@@ -95,17 +101,17 @@ function Shop() {
       id: 11,
       name: "Instagram Stories Template Pack",
       price: "P129",
-      image: "https://via.placeholder.com/300x200/FFB6C1/333333?text=Instagram+Templates",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSon4PcwpUz0tT_FMVM1MBV6h6YS6z0OwzT1A&s",
       description: "Editable story templates for fresh and engaging content.",
       category: "Templates"
     },
     {
       id: 12,
-      name: "Instagram Stories Template Pack",
-      price: "P129",
-      image: "https://via.placeholder.com/300x200/FFB6C1/333333?text=Instagram+Templates",
-      description: "Editable story templates for fresh and engaging content.",
-      category: "Templates"
+      name: "Digital Typography Font Bundle",
+      price: "P150",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQROv5wwbLufJJ6Ajm4vtoJ5j1EWZ-HCpksEQ&s",
+      description: "Premium collection of modern fonts for digital design projects.",
+      category: "Art"
     }
   ]
 

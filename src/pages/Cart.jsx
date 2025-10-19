@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { HiTrash, HiMinus, HiPlus } from 'react-icons/hi'
 import '../styles/Cart.css'
-
+import product1Image from '../assets/PRODUCTS/product 1.webp'
 const Cart = () => {
   const navigate = useNavigate()
   const [cartItems, setCartItems] = useState([
@@ -12,7 +12,7 @@ const Cart = () => {
       price: 179,
       color: "Pink",
       quantity: 1,
-      image: "https://via.placeholder.com/80x80/FFB6C1/333333?text=Planner"
+      image: product1Image
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const Cart = () => {
       price: 149,
       color: "Pink",
       quantity: 1,
-      image: "https://via.placeholder.com/80x80/EC4899/FFFFFF?text=Notebook"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKB4_hgJN8orPeD3ZeJQrCGp2xim8ivXJV_g&s"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Cart = () => {
       price: 129,
       pieces: "5 pcs",
       quantity: 1,
-      image: "https://via.placeholder.com/80x80/F59E0B/FFFFFF?text=Templates"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSon4PcwpUz0tT_FMVM1MBV6h6YS6z0OwzT1A&s"
     }
   ])
 

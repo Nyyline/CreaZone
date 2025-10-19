@@ -3,6 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { HiShoppingCart, HiFilter, HiChevronDown, HiDotsVertical, HiCheck } from 'react-icons/hi'
 import '../styles/ProductP.css'
 import '../styles/Shop.css'
+import product1Image from '../assets/PRODUCTS/product 1.webp'
+import product2Image from '../assets/PRODUCTS/Fall-Digital-Planner.jpg'
+import product3Image from '../assets/PRODUCTS/medium_17_4c7a359734.png'
+import product4Image from '../assets/PRODUCTS/UDPP-Mockup-2-1.webp'
 
 const ProductPage = () => {
   const { id } = useParams()
@@ -16,15 +20,14 @@ const ProductPage = () => {
   const products = [
     {
       id: 1,
-      name: "Essential Digital Product Creation Planner",
+      name: "Essential Digital Product Planner",
       price: "P179",
       rating: 4.5,
       images: [
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Digital+Product+Planner",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Planner+Pages",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Planner+Design"
+        product1Image
+        
       ],
-      description: "A cozy-themed digital journal for reflections, goal setting, and mindful planning.",
+      description: "Plan, organize, and launch your digital products with this comprehensive planner.",
       category: "Planners",
       designs: ['Blue', 'Red', 'Pink', 'Yellow']
     },
@@ -34,8 +37,8 @@ const ProductPage = () => {
       price: "P149",
       rating: 4.2,
       images: [
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Fall+Journal",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Journal+Pages"
+        product2Image
+        
       ],
       description: "A cozy-themed digital journal perfect for autumn planning.",
       category: "Journals",
@@ -47,8 +50,8 @@ const ProductPage = () => {
       price: "P129",
       rating: 4.8,
       images: [
-        "https://via.placeholder.com/400x500/F0F0F0/333333?text=Monthly+Agenda",
-        "https://via.placeholder.com/400x500/F0F0F0/333333?text=Agenda+Pages"
+        product3Image,
+        
       ],
       description: "Clean, simple monthly templates for organized planning.",
       category: "Printables",
@@ -56,15 +59,16 @@ const ProductPage = () => {
     },
     {
       id: 4,
-      name: "Minimalist Monthly Agenda Printables",
-      price: "P129",
-      rating: 4.8,
+      name: "Digital Art Sticker Pack",
+      price: "P89",
+      rating: 4.3,
       images: [
-        "https://via.placeholder.com/400x500/F0F0F0/333333?text=Monthly+Agenda",
-        "https://via.placeholder.com/400x500/F0F0F0/333333?text=Agenda+Pages"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Vf2sgEq2OE0N1qAGCr8TIUZDv34G6NPErA&s",
+        "https://m.media-amazon.com/images/I/61shpbQMQIL._AC_SL1080_.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcltspHpuUinfrYd6b4e0CZNY5PFWx3SgITA&s"
       ],
-      description: "Clean, simple monthly templates for organized planning.",
-      category: "Printables",
+      description: "Cute digital stickers for planners, journals, and social media.",
+      category: "Stickers",
       designs: ['Blue', 'Red', 'Pink', 'Yellow']
     },
     {
@@ -73,8 +77,8 @@ const ProductPage = () => {
       price: "P139",
       rating: 4.6,
       images: [
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=2024+Calendar",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Calendar+Pages"
+        product4Image,
+        
       ],
       description: "Printable digital calendar with beautiful aesthetic design.",
       category: "Calendars",
@@ -82,12 +86,12 @@ const ProductPage = () => {
     },
     {
       id: 6,
-      name: "Content Creator's Social Media Kit",
+      name: "Digital Product Mockup Templates",
       price: "P199",
       rating: 4.7,
       images: [
-        "https://via.placeholder.com/400x500/E6E6FA/333333?text=Social+Media+Kit",
-        "https://via.placeholder.com/400x500/E6E6FA/333333?text=Kit+Contents"
+        "https://www.thecreativesdesk.com/wp-content/uploads/digital-mockup-pinterest-canva-templates.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYTDqqCkcQseHjQDJCgJxaqGw-A2-Z9SD0Q&s"
       ],
       description: "Templates and checklists designed for content creators.",
       category: "Templates",
@@ -99,8 +103,7 @@ const ProductPage = () => {
       price: "P149",
       rating: 4.3,
       images: [
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Diario+Girls",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Notebook+Pages"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKB4_hgJN8orPeD3ZeJQrCGp2xim8ivXJV_g&s"
       ],
       description: "A fun and trendy digital notebook for girls.",
       category: "Notebooks",
@@ -108,15 +111,15 @@ const ProductPage = () => {
     },
     {
       id: 8,
-      name: "Diario Girls Digital Notebook",
-      price: "P149",
-      rating: 4.3,
+      name: "Digital Watercolor Brush Set",
+      price: "P199",
+      rating: 4.9,
       images: [
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Diario+Girls",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Notebook+Pages"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDuDY89LLj_RNWQlmi8Ajse4dnUdmBCP_ENg&s",
+        "https://public-files.gumroad.com/0q41ifvweo328djs1ddj3gnxsb4y"
       ],
-      description: "A fun and trendy digital notebook for girls.",
-      category: "Notebooks",
+      description: "Professional watercolor brushes for digital art and design.",
+      category: "Art",
       designs: ['Blue', 'Red', 'Pink', 'Yellow']
     },
     {
@@ -125,8 +128,8 @@ const ProductPage = () => {
       price: "P350",
       rating: 4.9,
       images: [
-        "https://via.placeholder.com/400x500/E6E6FA/333333?text=Stream+Banner",
-        "https://via.placeholder.com/400x500/E6E6FA/333333?text=Banner+Design"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGbtUqjuziDO87OGVwZ6eVSSSULk0AcNC1fA&s",
+        "https://storage.ko-fi.com/cdn/useruploads/post/80691746-84ab-41da-9d1d-aa1f7cb0b472_freetwitchcloudthemedstreamprofiletemplate.jpg"
       ],
       description: "Cute pastel-themed planner to enhance your streams.",
       category: "Banners",
@@ -138,8 +141,8 @@ const ProductPage = () => {
       price: "P189",
       rating: 4.4,
       images: [
-        "https://via.placeholder.com/400x500/8B5CF6/FFFFFF?text=Business+Workbook",
-        "https://via.placeholder.com/400x500/8B5CF6/FFFFFF?text=Workbook+Pages"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmUzqbB4nRJu5C0e0akeCdS5pTV4QeKu2yhw&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmUzqbB4nRJu5C0e0akeCdS5pTV4QeKu2yhw&s"
       ],
       description: "Professional digital guide to help build your brand strategy.",
       category: "Workbooks",
@@ -151,8 +154,9 @@ const ProductPage = () => {
       price: "P129",
       rating: 4.5,
       images: [
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Instagram+Templates",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Template+Designs"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSon4PcwpUz0tT_FMVM1MBV6h6YS6z0OwzT1A&s",
+        "https://planable.io/wp-content/webp-express/webp-images/uploads/2024/05/interactive-Instagram-story-templates.png.webp",
+        
       ],
       description: "Editable story templates for fresh and engaging content.",
       category: "Templates",
@@ -160,15 +164,15 @@ const ProductPage = () => {
     },
     {
       id: 12,
-      name: "Instagram Stories Template Pack",
-      price: "P129",
-      rating: 4.5,
+      name: "Digital Typography Font Bundle",
+      price: "P150",
+      rating: 4.7,
       images: [
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Instagram+Templates",
-        "https://via.placeholder.com/400x500/FFB6C1/333333?text=Template+Designs"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQROv5wwbLufJJ6Ajm4vtoJ5j1EWZ-HCpksEQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl1v2BFywUrtcFVP6qldSTja5diay638LVow&s"
       ],
-      description: "Editable story templates for fresh and engaging content.",
-      category: "Templates",
+      description: "Premium collection of modern fonts for digital design projects.",
+      category: "Art",
       designs: ['Blue', 'Red', 'Pink', 'Yellow']
     }
   ]
@@ -339,23 +343,6 @@ const ProductPage = () => {
                 ))}
               </div>
             </div>
-
-            {/* Quantity Selector */}
-            {/* <div className="quantity-selector flex items-center gap-4 my-6">
-              <button 
-                className="quantity-btn minus w-10 h-10 bg-[#FF6F3C] text-white rounded-full flex items-center justify-center font-bold text-xl hover:bg-green-600 transition-all duration-200 hover:scale-110 active:scale-95"
-                onClick={() => handleQuantityChange(-1)}
-              >
-                -
-              </button>
-              <span className="quantity-display w-12 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center text-lg font-semibold text-gray-800">{quantity}</span>
-              <button 
-                className="quantity-btn plus w-10 h-10 bg-[#FF6F3C] text-white rounded-full flex items-center justify-center font-bold text-xl hover:bg-green-600 transition-all duration-200 hover:scale-110 active:scale-95"
-                onClick={() => handleQuantityChange(1)}
-              >
-                +
-              </button>
-            </div> */}
 
             {/* Add to Cart Button */}
             <div className='flex flex-row gap-4 mb-4'>
