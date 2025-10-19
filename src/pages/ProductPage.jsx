@@ -322,7 +322,7 @@ const ProductPage = () => {
 
             {/* Design Selection */}
             <div className="design-selection my-6">
-              <label className="design-label block text-lg font-semibold text-gray-800 mb-3">Choose Design</label>
+              <label className="design-label block text-lg font-semibold text-gray-800 mb-5">Choose Design</label>
               <div className="design-options flex gap-3 flex-wrap">
                 {product.designs.map((design) => (
                   <button
@@ -341,7 +341,7 @@ const ProductPage = () => {
             </div>
 
             {/* Quantity Selector */}
-            <div className="quantity-selector flex items-center gap-4 my-6">
+            {/* <div className="quantity-selector flex items-center gap-4 my-6">
               <button 
                 className="quantity-btn minus w-10 h-10 bg-[#FF6F3C] text-white rounded-full flex items-center justify-center font-bold text-xl hover:bg-green-600 transition-all duration-200 hover:scale-110 active:scale-95"
                 onClick={() => handleQuantityChange(-1)}
@@ -355,7 +355,7 @@ const ProductPage = () => {
               >
                 +
               </button>
-            </div>
+            </div> */}
 
             {/* Add to Cart Button */}
             <div className='flex flex-row gap-4 mb-4'>
@@ -399,8 +399,8 @@ const ProductPage = () => {
               {/* Header */}
               <div className="reviews-header">
                 <div>
-                  <h2>All Reviews</h2>
-                  <span className="review-count">(451)</span>
+                  <h2>All Reviews<span className="review-count">(451)</span></h2>
+                  
                 </div>
                 <div className="header-controls">
                   <button className="filter-button">
