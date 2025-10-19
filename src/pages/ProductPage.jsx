@@ -193,6 +193,7 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     console.log('Added to cart:', product.name, 'Design:', selectedDesign, 'Quantity:', quantity)
+    navigate('/cart')
   }
 
   const handleQuantityChange = (change) => {

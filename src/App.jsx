@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom'
 import logoImage from './assets/LOGO 1.svg'
 import { HiMenuAlt3, HiShoppingCart } from 'react-icons/hi'
 import { MdHeadphones } from 'react-icons/md'
@@ -8,10 +8,12 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Shop from './pages/Shop'
 import ProductPage from './pages/ProductPage'
+import Cart from './pages/Cart'
 
 // Navigation Component
 function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const location = useLocation()
+  const navigate = useNavigate()
   
   const isActive = (path) => {
     return location.pathname === path
@@ -39,7 +41,10 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
 
           {/* Right Side - Shopping Cart and Mobile Menu Button */}
           <div className="header-right">
-            <HiShoppingCart className="cart-icon" />
+            <button className="cart-button" onClick={() => navigate('/cart')}>
+              <HiShoppingCart className="cart-icon" />
+            </button>
+            
             <button 
               className="mobile-menu-btn"
               onClick={() => {
@@ -121,6 +126,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
              </div>
     </Router>

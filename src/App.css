@@ -118,6 +118,7 @@ html, body {
 /* Header Right - Shopping Cart */
 .header-right {
   display: flex;
+  
   align-items: center;
   gap: 15px;
 }
@@ -126,6 +127,7 @@ html, body {
   font-size: 24px;
   color: #2c2c2c;
   cursor: pointer;
+  margin-top: 50%;
   transition: color 0.3s ease;
 }
 
