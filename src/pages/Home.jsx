@@ -125,7 +125,6 @@ function Home() {
                   mx-auto
                   grid justify-center items-start
                   gap-x-2 gap-y-3 sm:gap-x-5 sm:gap-y-8
-                  
                   grid-cols-2
                   sm:grid-cols-[150px_240px]
                   md:grid-cols-[280px_280px]

@@ -67,29 +67,29 @@ const Cart = () => {
                       <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-lg" />
                     </div>
                     <div className="item-details">
-                      <h3 className="item-name">{item.name}</h3>
-                      <p className="item-attribute">
+                      <h3 className="item-name font-semibold">{item.name}</h3>
+                      <p className="item-attribute text-gray-600">
                         {item.color ? `Color: ${item.color}` : `Pieces: ${item.pieces}`}
                       </p>
-                      <div className="item-price">P{item.price}</div>
+                      <div className="item-price font-bold text-lg">P{item.price}</div>
                     </div>
                     <div className="item-controls">
                       <button 
-                        className="remove-btn hover:bg-red-100 transition-colors duration-200"
+                        className="remove-btn hover:bg-red-100 hover:scale-110 transition-all duration-200"
                         onClick={() => removeItem(item.id)}
                       >
                         <HiTrash size={16} />
                       </button>
                       <div className="quantity-controls">
                         <button 
-                          className="quantity-btn hover:bg-gray-100 transition-colors duration-200"
+                          className="quantity-btn hover:bg-gray-100 hover:scale-105 transition-all duration-200"
                           onClick={() => updateQuantity(item.id, -1)}
                         >
                           <HiMinus size={12} />
                         </button>
-                        <span className="quantity-display">{item.quantity}</span>
+                        <span className="quantity-display font-medium">{item.quantity}</span>
                         <button 
-                          className="quantity-btn hover:bg-gray-100 transition-colors duration-200"
+                          className="quantity-btn hover:bg-gray-100 hover:scale-105 transition-all duration-200"
                           onClick={() => updateQuantity(item.id, 1)}
                         >
                           <HiPlus size={12} />
@@ -121,7 +121,7 @@ const Cart = () => {
                 
                 <div className="promo-section">
                   <div className="promo-input-container">
-                    <div className="promo-icon">💎</div>
+                    <div className="promo-icon text-2xl">💎</div>
                     <input 
                       type="text" 
                       placeholder="Add promo code"
@@ -129,13 +129,13 @@ const Cart = () => {
                       onChange={(e) => setPromoCode(e.target.value)}
                       className="promo-input focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200"
                     />
-                    <button className="apply-btn hover:bg-orange-600 transition-colors duration-200">
+                    <button className="apply-btn hover:bg-orange-600 hover:scale-105 transition-all duration-200">
                       Apply
                     </button>
                   </div>
                 </div>
                 
-                <button className="checkout-btn hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-200">
+                <button className="checkout-btn hover:bg-orange-600 hover:scale-105 transform hover:-translate-y-1 transition-all duration-200 shadow-lg hover:shadow-xl">
                   Go to Checkout
                 </button>
               </div>

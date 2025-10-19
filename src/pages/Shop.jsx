@@ -169,8 +169,8 @@ function Shop() {
                 {category}
               </button>
             ))}
-          </div>
-          
+        </div>
+
           {/* Mobile Filter Button */}
           <button 
             className="mobile-filter-button hover:bg-teal-700 transform hover:-translate-y-1 transition-all duration-200"
