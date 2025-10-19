@@ -302,7 +302,7 @@ const ProductPage = () => {
                   key={index}
                   src={image}
                   alt={`${product.name} ${index + 1}`}
-                  className={`thumbnail-image ${selectedImage === index ? 'active' : ''}`}
+                  className={`thumbnail-image ${selectedImage === index ? 'active' : ''} hover:scale-105 transition-transform duration-200 cursor-pointer`}
                   onClick={() => setSelectedImage(index)}
                 />
               ))}
@@ -346,11 +346,11 @@ const ProductPage = () => {
 
             {/* Add to Cart Button */}
             <div className='flex flex-row gap-4 mb-4'>
-              <button className="flex-1 bg-[#FF6F3C] text-white py-6 px-12 rounded-full text-2xl font-bold uppercase tracking-wide hover:bg-orange-600 transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300" onClick={handleBuyNow}>
+              <button className="flex-1 bg-[#FF6F3C] text-white py-6 px-12 rounded-full text-2xl font-bold uppercase tracking-wide hover:bg-orange-600 transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300 focus:ring-4 focus:ring-orange-300" onClick={handleBuyNow}>
                 Buy Now!
               </button>
               
-              <button className="w-16 h-16 bg-[#1ABC9C] text-white rounded-full hover:bg-green-700 transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex items-center justify-center" onClick={handleAddToCart}>
+              <button className="w-16 h-16 bg-[#1ABC9C] text-white rounded-full hover:bg-green-700 transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex items-center justify-center focus:ring-4 focus:ring-green-300" onClick={handleAddToCart}>
                 <HiShoppingCart size={28} />
               </button>
             </div>
@@ -366,13 +366,13 @@ const ProductPage = () => {
           <div className="tabs-container mb-8">
             <div className="flex border-b border-gray-300">
               <button 
-                className={`tab-button px-6 py-3 text-lg font-medium ${activeTab === 'details' ? 'active' : ''}`}
+                className={`tab-button px-6 py-3 text-lg font-medium transition-all duration-200 hover:bg-gray-50 ${activeTab === 'details' ? 'active' : ''}`}
                 onClick={() => setActiveTab('details')}
               >
                 Product Details
               </button>
               <button 
-                className={`tab-button px-6 py-3 text-lg font-medium ${activeTab === 'reviews' ? 'active' : ''}`}
+                className={`tab-button px-6 py-3 text-lg font-medium transition-all duration-200 hover:bg-gray-50 ${activeTab === 'reviews' ? 'active' : ''}`}
                 onClick={() => setActiveTab('reviews')}
               >
                 Rating & Reviews
@@ -390,15 +390,15 @@ const ProductPage = () => {
                   
                 </div>
                 <div className="header-controls">
-                  <button className="filter-button">
+                  <button className="filter-button hover:bg-gray-100 transition-colors duration-200">
                     <HiFilter size={16} />
                     <span>Filter</span>
                   </button>
-                  <div className="sort-dropdown">
+                  <div className="sort-dropdown hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
                     <span>Latest</span>
                     <HiChevronDown size={14} />
                   </div>
-                  <button className="write-review-button">
+                  <button className="write-review-button hover:bg-orange-600 transition-colors duration-200">
                     Write a Review
                   </button>
                 </div>
@@ -407,8 +407,8 @@ const ProductPage = () => {
               {/* Reviews Grid */}
               <div className="reviews-grid">
                 {reviews.map((review) => (
-                  <div key={review.id} className="review-card">
-                    <button className="options-button">
+                  <div key={review.id} className="review-card hover:shadow-lg transition-shadow duration-200">
+                    <button className="options-button hover:bg-gray-100 transition-colors duration-200">
                       <HiDotsVertical size={16} />
                     </button>
                     
@@ -438,7 +438,7 @@ const ProductPage = () => {
 
               {/* Load More Button */}
               <div className="text-center">
-                <button className="load-more-button">
+                <button className="load-more-button hover:bg-gray-100 hover:text-gray-800 transition-all duration-200 transform hover:-translate-y-1">
                   Load More Reviews
                 </button>
               </div>
@@ -496,16 +496,16 @@ const ProductPage = () => {
             <div className="related-products-grid">
 
             {products.slice(0, 4).map(product => (
-            <div key={product.id} className="product-card">
+            <div key={product.id} className="product-card hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
               <div className="product-image">
-                <img src={product.image} alt={product.name} />
+                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                 <div className="product-price-overlay">{product.price}</div>
               </div>
               <div className="product-info">
                 <h3 className="product-title">{product.name}</h3>
                 <p className="product-description">{product.description}</p>
               </div>
-              <button className="buy-now-button" >
+              <button className="buy-now-button hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-200" >
                   Buy Now
                 </button>
             </div>

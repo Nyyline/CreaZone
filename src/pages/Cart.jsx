@@ -64,7 +64,7 @@ const Cart = () => {
                 {cartItems.map(item => (
                   <div key={item.id} className="cart-item">
                     <div className="item-image">
-                      <img src={item.image} alt={item.name} />
+                      <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-lg" />
                     </div>
                     <div className="item-details">
                       <h3 className="item-name">{item.name}</h3>
@@ -75,21 +75,21 @@ const Cart = () => {
                     </div>
                     <div className="item-controls">
                       <button 
-                        className="remove-btn"
+                        className="remove-btn hover:bg-red-100 transition-colors duration-200"
                         onClick={() => removeItem(item.id)}
                       >
                         <HiTrash size={16} />
                       </button>
                       <div className="quantity-controls">
                         <button 
-                          className="quantity-btn"
+                          className="quantity-btn hover:bg-gray-100 transition-colors duration-200"
                           onClick={() => updateQuantity(item.id, -1)}
                         >
                           <HiMinus size={12} />
                         </button>
                         <span className="quantity-display">{item.quantity}</span>
                         <button 
-                          className="quantity-btn"
+                          className="quantity-btn hover:bg-gray-100 transition-colors duration-200"
                           onClick={() => updateQuantity(item.id, 1)}
                         >
                           <HiPlus size={12} />
@@ -127,13 +127,15 @@ const Cart = () => {
                       placeholder="Add promo code"
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
-                      className="promo-input"
+                      className="promo-input focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200"
                     />
-                    <button className="apply-btn">Apply</button>
+                    <button className="apply-btn hover:bg-orange-600 transition-colors duration-200">
+                      Apply
+                    </button>
                   </div>
                 </div>
                 
-                <button className="checkout-btn">
+                <button className="checkout-btn hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-200">
                   Go to Checkout
                 </button>
               </div>

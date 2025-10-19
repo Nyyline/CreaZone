@@ -9,6 +9,7 @@ import About from './pages/About'
 import Shop from './pages/Shop'
 import ProductPage from './pages/ProductPage'
 import Cart from './pages/Cart'
+import Footer from './components/Footer'
 
 // Navigation Component
 function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
@@ -128,6 +129,8 @@ function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+        
+        <Footer />
              </div>
     </Router>
   )

@@ -141,11 +141,11 @@ function Shop() {
             <input 
               type="text" 
               placeholder="Search..." 
-              className="search-input"
+              className="search-input focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button className="search-button">
+            <button className="search-button hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-200">
               <HiSearch size={20} />
               Search
             </button>
@@ -163,7 +163,7 @@ function Shop() {
             {categories.map(category => (
               <button 
                 key={category}
-                className={`category-filter ${selectedCategory === category ? 'active' : ''}`}
+                className={`category-filter ${selectedCategory === category ? 'active' : ''} hover:bg-teal-600 hover:text-white transition-all duration-200 transform hover:-translate-y-1`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category}
@@ -173,7 +173,7 @@ function Shop() {
           
           {/* Mobile Filter Button */}
           <button 
-            className="mobile-filter-button"
+            className="mobile-filter-button hover:bg-teal-700 transform hover:-translate-y-1 transition-all duration-200"
             onClick={() => setIsFilterModalOpen(true)}
           >
             <HiMenu size={16} />
@@ -186,16 +186,16 @@ function Shop() {
       <section className="products-section">
         <div className="products-grid">
           {products.map(product => (
-            <div key={product.id} className="product-card" onClick={() => handleProductClick(product.id)}>
+            <div key={product.id} className="product-card hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300" onClick={() => handleProductClick(product.id)}>
               <div className="product-image">
-                <img src={product.image} alt={product.name} />
+                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                 <div className="product-price-overlay">{product.price}</div>
               </div>
               <div className="product-info">
                 <h3 className="product-title">{product.name}</h3>
                 <p className="product-description">{product.description}</p>
               </div>
-              <button className="buy-now-button" onClick={(e) => {
+              <button className="buy-now-button hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-200" onClick={(e) => {
                 e.stopPropagation()
                 addToCart()
               }}>
@@ -208,19 +208,19 @@ function Shop() {
 
       {/* Pagination */}
       <div className="pagination">
-        <button className="pagination-button">
+        <button className="pagination-button hover:bg-orange-600 hover:text-white transition-all duration-200 transform hover:-translate-y-1">
           ← Previous
         </button>
         <div className="pagination-numbers">
           <span className="page-number active">1</span>
-          <span className="page-number">2</span>
-          <span className="page-number">3</span>
+          <span className="page-number hover:bg-orange-500 hover:text-white transition-all duration-200 cursor-pointer">2</span>
+          <span className="page-number hover:bg-orange-500 hover:text-white transition-all duration-200 cursor-pointer">3</span>
           <span className="page-dots">...</span>
-          <span className="page-number">8</span>
-          <span className="page-number">9</span>
-          <span className="page-number">10</span>
+          <span className="page-number hover:bg-orange-500 hover:text-white transition-all duration-200 cursor-pointer">8</span>
+          <span className="page-number hover:bg-orange-500 hover:text-white transition-all duration-200 cursor-pointer">9</span>
+          <span className="page-number hover:bg-orange-500 hover:text-white transition-all duration-200 cursor-pointer">10</span>
         </div>
-        <button className="pagination-button">
+        <button className="pagination-button hover:bg-orange-600 hover:text-white transition-all duration-200 transform hover:-translate-y-1">
           Next →
         </button>
       </div>
@@ -242,7 +242,7 @@ function Shop() {
               {categories.map(category => (
                 <button
                   key={category}
-                  className={`modal-filter-option ${selectedCategory === category ? 'active' : ''}`}
+                  className={`modal-filter-option ${selectedCategory === category ? 'active' : ''} hover:bg-teal-600 hover:text-white transition-all duration-200 transform hover:-translate-y-1`}
                   onClick={() => handleFilterSelect(category)}
                 >
                   {category}
