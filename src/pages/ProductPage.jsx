@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { HiShoppingCart } from 'react-icons/hi'
 import '../styles/ProductP.css'
 
 const ProductPage = () => {
@@ -184,6 +185,10 @@ const ProductPage = () => {
     )
   }
 
+  const handleBuyNow = () => {
+    console.log('Buy now:', product.name, 'Design:', selectedDesign, 'Quantity:', quantity)
+  }
+
   const handleAddToCart = () => {
     console.log('Added to cart:', product.name, 'Design:', selectedDesign, 'Quantity:', quantity)
   }
@@ -218,7 +223,10 @@ const ProductPage = () => {
 
   return (
     <main className="product-page-main">
-      <section className="product-page-section">
+        <section className="product-page-section">
+        <button className="back-to-shop-button w-full bg-transparent text-gray-600 border-2 border-gray-300 py-3 px-6 rounded-full text-lg font-medium hover:border-orange-500 hover:text-orange-500 transition-all duration-300 mb-4" onClick={() => navigate('/shop')}>
+              Back to Shop
+            </button>
         <div className="product-container">
           {/* Left Section - Product Images */}
           <div className="product-images-section">
@@ -244,9 +252,9 @@ const ProductPage = () => {
 
           {/* Right Section - Product Details */}
           <div className="product-details-section">
-            <h1 className="product-title text-3xl font-bold text-gray-800 mb-4">{product.name}</h1>
+            <h1 className="product-title-prod text-3xl font-bold text-gray-800 mb-4">{product.name}</h1>
             
-            <div className="price-rating-container flex items-center gap-8 mb-4">
+            <div className="price-rating-container flex items-center gap-8 mb-3 justify-between">
               <div className="product-price text-4xl font-bold text-gray-800">{product.price}</div>
               <div className="product-rating flex items-center gap-3">
                 <span className="rating-number text-lg font-semibold text-gray-700">{product.rating}/5</span>
@@ -256,7 +264,7 @@ const ProductPage = () => {
               </div>
             </div>
 
-            <p className="product-description text-lg text-gray-600 leading-relaxed mb-6">{product.description}</p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">{product.description}</p>
 
             {/* Design Selection */}
             <div className="design-selection my-6">
@@ -281,14 +289,14 @@ const ProductPage = () => {
             {/* Quantity Selector */}
             <div className="quantity-selector flex items-center gap-4 my-6">
               <button 
-                className="quantity-btn minus w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl hover:bg-green-600 transition-all duration-200 hover:scale-110 active:scale-95"
+                className="quantity-btn minus w-10 h-10 bg-[#FF6F3C] text-white rounded-full flex items-center justify-center font-bold text-xl hover:bg-green-600 transition-all duration-200 hover:scale-110 active:scale-95"
                 onClick={() => handleQuantityChange(-1)}
               >
                 -
               </button>
               <span className="quantity-display w-12 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center text-lg font-semibold text-gray-800">{quantity}</span>
               <button 
-                className="quantity-btn plus w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl hover:bg-green-600 transition-all duration-200 hover:scale-110 active:scale-95"
+                className="quantity-btn plus w-10 h-10 bg-[#FF6F3C] text-white rounded-full flex items-center justify-center font-bold text-xl hover:bg-green-600 transition-all duration-200 hover:scale-110 active:scale-95"
                 onClick={() => handleQuantityChange(1)}
               >
                 +
@@ -296,16 +304,21 @@ const ProductPage = () => {
             </div>
 
             {/* Add to Cart Button */}
-            <button className="add-to-cart-button w-full bg-orange-500 text-white py-4 px-8 rounded-full text-xl font-bold uppercase tracking-wide hover:bg-orange-600 transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300 mb-4" onClick={handleAddToCart}>
-              Add to Cart
-            </button>
+            <div className='flex flex-row gap-4 mb-4'>
+              <button className="flex-1 bg-[#FF6F3C] text-white py-6 px-12 rounded-full text-2xl font-bold uppercase tracking-wide hover:bg-orange-600 transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300" onClick={handleBuyNow}>
+                Buy Now!
+              </button>
+              
+              <button className="w-16 h-16 bg-[#1ABC9C] text-white rounded-full hover:bg-green-700 transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex items-center justify-center" onClick={handleAddToCart}>
+                <HiShoppingCart size={28} />
+              </button>
+            </div>
+            
 
-            <button className="back-to-shop-button w-full bg-transparent text-gray-600 border-2 border-gray-300 py-3 px-6 rounded-full text-lg font-medium hover:border-orange-500 hover:text-orange-500 transition-all duration-300" onClick={() => navigate('/shop')}>
-              Back to Shop
-            </button>
+            
           </div>
         </div>
-      </section>
+        </section>
     </main>
   )
 }
