@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { HiShoppingCart } from 'react-icons/hi'
+import { HiShoppingCart, HiFilter, HiChevronDown, HiDotsVertical, HiCheck } from 'react-icons/hi'
 import '../styles/ProductP.css'
+import '../styles/Shop.css'
 
 const ProductPage = () => {
   const { id } = useParams()
@@ -9,6 +10,7 @@ const ProductPage = () => {
   const [selectedDesign, setSelectedDesign] = useState('Pink')
   const [quantity, setQuantity] = useState(1)
   const [selectedImage, setSelectedImage] = useState(0)
+  const [activeTab, setActiveTab] = useState('reviews')
 
   // Sample products data with additional details
   const products = [
@@ -221,6 +223,58 @@ const ProductPage = () => {
     return stars
   }
 
+  // Sample reviews data
+  const reviews = [
+    {
+      id: 1,
+      name: "Samantha D.",
+      rating: 5,
+      text: "The Essential Planner has been a lifesaver for me. It breaks down everything step by step, making it easy to stay organized and focused on my projects. I've never felt more in control of my schedule!",
+      date: "August 14, 2023",
+      verified: true
+    },
+    {
+      id: 2,
+      name: "Alex M.",
+      rating: 5,
+      text: "This planner exceeded my expectations. The layouts are clean and professional, and I love how it balances creativity with productivity. It's now my go-to tool for planning digital products.",
+      date: "August 15, 2023",
+      verified: true
+    },
+    {
+      id: 3,
+      name: "Ethan R.",
+      rating: 5,
+      text: "This planner is perfect for freelancers like me. It helps me structure my ideas, track deadlines, and keep all my projects in one place. I can see the designer's care in every detail.",
+      date: "August 16, 2023",
+      verified: true
+    },
+    {
+      id: 4,
+      name: "Olivia P.",
+      rating: 5,
+      text: "I'm a visual person, so I appreciate how well-designed the pages are. The Essential Planner doesn't just help me stay on track—it actually makes planning enjoyable. A must-have for creatives!",
+      date: "August 17, 2023",
+      verified: true
+    },
+    {
+      id: 5,
+      name: "Liam K.",
+      rating: 5,
+      text: "The Essential Digital Product Creation Planner makes a huge difference in how I organize my work. It's practical, beautifully designed, and easy to follow. I recommend it to anyone juggling multiple projects.",
+      date: "August 18, 2023",
+      verified: true
+    },
+    {
+      id: 6,
+      name: "Ava H.",
+      rating: 5,
+      text: "I've used other planners before, but this one stands out. It combines structure with creativity, which keeps me motivated. I especially love the sections for goal setting and tracking progress.",
+      date: "August 19, 2023",
+      verified: true
+    }
+  ]
+
   return (
     <main className="product-page-main">
         <section className="product-page-section">
@@ -264,7 +318,6 @@ const ProductPage = () => {
               </div>
             </div>
 
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">{product.description}</p>
 
             {/* Design Selection */}
             <div className="design-selection my-6">
@@ -318,6 +371,162 @@ const ProductPage = () => {
             
           </div>
         </div>
+
+        {/* Rating & Reviews Section */}
+        <section className="reviews-section mt-16">
+          {/* Navigation Tabs */}
+          <div className="tabs-container mb-8">
+            <div className="flex border-b border-gray-300">
+              <button 
+                className={`tab-button px-6 py-3 text-lg font-medium ${activeTab === 'details' ? 'active' : ''}`}
+                onClick={() => setActiveTab('details')}
+              >
+                Product Details
+              </button>
+              <button 
+                className={`tab-button px-6 py-3 text-lg font-medium ${activeTab === 'reviews' ? 'active' : ''}`}
+                onClick={() => setActiveTab('reviews')}
+              >
+                Rating & Reviews
+              </button>
+            </div>
+          </div>
+
+          {/* Reviews Content */}
+          {activeTab === 'reviews' && (
+            <div className="reviews-content">
+              {/* Header */}
+              <div className="reviews-header">
+                <div>
+                  <h2>All Reviews</h2>
+                  <span className="review-count">(451)</span>
+                </div>
+                <div className="header-controls">
+                  <button className="filter-button">
+                    <HiFilter size={16} />
+                    <span>Filter</span>
+                  </button>
+                  <div className="sort-dropdown">
+                    <span>Latest</span>
+                    <HiChevronDown size={14} />
+                  </div>
+                  <button className="write-review-button">
+                    Write a Review
+                  </button>
+                </div>
+              </div>
+
+              {/* Reviews Grid */}
+              <div className="reviews-grid">
+                {reviews.map((review) => (
+                  <div key={review.id} className="review-card">
+                    <button className="options-button">
+                      <HiDotsVertical size={16} />
+                    </button>
+                    
+                    <div className="stars">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i}>★</span>
+                      ))}
+                    </div>
+                    
+                    <div className="reviewer-info">
+                      <span className="reviewer-name">{review.name}</span>
+                      {review.verified && (
+                        <div className="verified-badge">
+                          <HiCheck size={10} />
+                        </div>
+                      )}
+                    </div>
+                    
+                    <p className="review-text">{review.text}</p>
+                    
+                    <div className="review-date">
+                      Posted on {review.date}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Load More Button */}
+              <div className="text-center">
+                <button className="load-more-button">
+                  Load More Reviews
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Product Details Tab */}
+          {activeTab === 'details' && (
+            <div className="product-details-content">
+              <h3>Product Details</h3>
+              
+              <div className="detail-section">
+                <h4>Description</h4>
+                <p>{product.description}</p>
+              </div>
+              
+              <div className="detail-section">
+                <h4>Features</h4>
+                <div className="features-grid">
+                  <div className="feature-item">Comprehensive project planning templates</div>
+                  <div className="feature-item">Goal setting and tracking worksheets</div>
+                  <div className="feature-item">Progress monitoring sheets</div>
+                  <div className="feature-item">Digital product launch checklist</div>
+                  <div className="feature-item">Market research templates</div>
+                  <div className="feature-item">Content planning calendars</div>
+                </div>
+              </div>
+              
+              <div className="detail-section">
+                <h4>What's Included</h4>
+                <div className="included-items">
+                  <div className="included-item">35+ printable pages</div>
+                  <div className="included-item">PDF format for easy use</div>
+                  <div className="included-item">Compatible with all devices</div>
+                  <div className="included-item">Instant download after purchase</div>
+                  <div className="included-item">Lifetime access to updates</div>
+                </div>
+              </div>
+              
+              <div className="detail-section">
+                <h4>Perfect For</h4>
+                <div className="perfect-for-section">
+                  <p>Digital product creators, entrepreneurs, freelancers, content creators, and anyone looking to organize and launch their digital products successfully.</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </section>
+      
+        {/* You Might Also Like Section */}
+        <section className="you-might-also-like-section mt-16">
+          <div className="section-container">
+            <h2 className="section-title">You might also like</h2>
+            <div className="related-products-grid">
+
+            {products.slice(0, 4).map(product => (
+            <div key={product.id} className="product-card">
+              <div className="product-image">
+                <img src={product.image} alt={product.name} />
+                <div className="product-price-overlay">{product.price}</div>
+              </div>
+              <div className="product-info">
+                <h3 className="product-title">{product.name}</h3>
+                <p className="product-description">{product.description}</p>
+              </div>
+              <button className="buy-now-button" >
+                  Buy Now
+                </button>
+            </div>
+          ))}
+
+
+            </div>
+          </div>
+        </section>
         </section>
     </main>
   )
