@@ -498,7 +498,7 @@ const ProductPage = () => {
             {products.slice(0, 4).map(product => (
             <div key={product.id} className="product-card hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
               <div className="product-image">
-                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
                 <div className="product-price-overlay">{product.price}</div>
               </div>
               <div className="product-info">

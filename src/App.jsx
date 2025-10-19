@@ -9,7 +9,7 @@ import About from './pages/About'
 import Shop from './pages/Shop'
 import ProductPage from './pages/ProductPage'
 import Cart from './pages/Cart'
-import Footer from './components/Footer'
+import Footer from './pages/Footer'
 
 // Navigation Component
 function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }) {
