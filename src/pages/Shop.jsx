@@ -6,6 +6,7 @@ import '../styles/Shop.css'
 function Shop() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
   const navigate = useNavigate()
 
   // Sample products data based on the design
@@ -110,6 +111,11 @@ function Shop() {
 
   const categories = ['All', 'Planners', 'Journals', 'Printables', 'Calendars', 'Templates', 'Notebooks', 'Workbooks', 'Banners', 'Stickers', 'Art', 'E-books']
 
+  const handleFilterSelect = (category) => {
+    setSelectedCategory(category)
+    setIsFilterModalOpen(false)
+  }
+
   const addToCart = () => {
     // Add to cart functionality
     console.log('Added to cart')
@@ -146,7 +152,8 @@ function Shop() {
             <HiMenu size={24} />
           </button>
           
-          <div className="category-filters">
+          {/* Desktop Filters */}
+          <div className="desktop-filters category-filters">
             {categories.map(category => (
               <button 
                 key={category}
@@ -157,6 +164,15 @@ function Shop() {
               </button>
             ))}
           </div>
+          
+          {/* Mobile Filter Button */}
+          <button 
+            className="mobile-filter-button"
+            onClick={() => setIsFilterModalOpen(true)}
+          >
+            <HiMenu size={16} />
+            Filter
+          </button>
         </div>
       </header>
 
@@ -202,6 +218,34 @@ function Shop() {
           Next →
         </button>
       </div>
+
+      {/* Filter Modal */}
+      {isFilterModalOpen && (
+        <div className="filter-modal-overlay" onClick={() => setIsFilterModalOpen(false)}>
+          <div className="filter-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="filter-modal-header">
+              <h3>Filter by Category</h3>
+              <button 
+                className="close-modal-btn"
+                onClick={() => setIsFilterModalOpen(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="filter-modal-content">
+              {categories.map(category => (
+                <button
+                  key={category}
+                  className={`modal-filter-option ${selectedCategory === category ? 'active' : ''}`}
+                  onClick={() => handleFilterSelect(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
