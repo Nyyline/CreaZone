@@ -15,6 +15,7 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(1)
   const [selectedImage, setSelectedImage] = useState(0)
   const [activeTab, setActiveTab] = useState('reviews')
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false)
 
   // Sample products data with additional details
   const products = [
@@ -192,7 +193,7 @@ const ProductPage = () => {
   }
 
   const handleBuyNow = () => {
-    console.log('Buy now:', product.name, 'Design:', selectedDesign, 'Quantity:', quantity)
+    setShowPurchaseModal(true)
   }
 
   const handleAddToCart = () => {
@@ -516,6 +517,80 @@ const ProductPage = () => {
           </div>
         </section>
         </section>
+
+        {/* Purchase Confirmation Modal */}
+        {showPurchaseModal && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowPurchaseModal(false)}>
+            <div className="bg-white rounded-2xl !p-10 max-w-md w-full text-center shadow-2xl transform animate-scaleIn" onClick={(e) => e.stopPropagation()}>
+              {/* Success Icon */}
+              <div className="!mx-auto w-24 h-24 bg-green-100 rounded-full flex items-center justify-center !mb-8">
+                <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              
+              {/* Title */}
+              <h2 className="text-2xl font-bold text-gray-800 !mb-6">Purchase Successful!</h2>
+              
+              {/* Message */}
+              <p className="text-gray-600 !mb-8 text-base leading-relaxed">
+                Your order has been processed successfully. You will receive a confirmation email shortly.
+              </p>
+              
+              {/* Order Summary */}
+              <div className="bg-gray-50 rounded-xl !p-6 !mb-8">
+                <h3 className="font-semibold text-gray-700 !mb-4 text-lg">Order Summary</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Product:</span>
+                    <span className="font-semibold text-gray-800">{product.name}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Design:</span>
+                    <span className="font-semibold text-gray-800">{selectedDesign}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Quantity:</span>
+                    <span className="font-semibold text-gray-800">{quantity}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Total Amount:</span>
+                    <span className="font-bold text-orange-500 text-lg">{product.price}</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button 
+                  className="bg-gray-100 text-gray-700 !px-6 !py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-200 flex-1 sm:flex-none"
+                  onClick={() => setShowPurchaseModal(false)}
+                >
+                  Continue Shopping
+                </button>
+                <button 
+                  className="bg-orange-500 text-white !px-6 !py-3 rounded-xl font-semibold hover:bg-orange-600 hover:scale-105 transition-all duration-200 shadow-lg flex-1 sm:flex-none"
+                  onClick={() => {
+                    setShowPurchaseModal(false)
+                    navigate('/')
+                  }}
+                >
+                  Go to Home
+                </button>
+              </div>
+              
+              {/* Close Button */}
+              <button 
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                onClick={() => setShowPurchaseModal(false)}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
     </main>
   )
 }

@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo, memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Shield, Users, Palette, ShoppingBag } from "lucide-react"
 import things from '../assets/home/things.svg'
@@ -26,6 +27,8 @@ const MemoizedIcon = memo(({ Icon, className, size }) => (
 ))
 
 function Home() {
+  const navigate = useNavigate()
+  
   // Image slider state - memoized for performance
   const sliderImages = useMemo(() => [slider1, slider2, slider3], [])
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -326,7 +329,10 @@ function Home() {
               Ready to shop or<br />
               sell your creativity?
             </h2>
-            <button className="bg-[#FF6F3C] hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg w-75 h-18 text-3xl !mt-5 border-white border-5">
+            <button 
+              className="bg-[#FF6F3C] hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg w-75 h-18 text-3xl !mt-5 border-white border-5"
+              onClick={() => navigate('/shop')}
+            >
               Shop Now!
             </button>
           </div>
