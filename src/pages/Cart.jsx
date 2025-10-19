@@ -33,6 +33,7 @@ const Cart = () => {
   ])
 
   const [promoCode, setPromoCode] = useState('')
+  const [showThankYouModal, setShowThankYouModal] = useState(false)
 
   const updateQuantity = (id, change) => {
     setCartItems(items => 
@@ -46,6 +47,10 @@ const Cart = () => {
 
   const removeItem = (id) => {
     setCartItems(items => items.filter(item => item.id !== id))
+  }
+
+  const handleCheckout = () => {
+    setShowThankYouModal(true)
   }
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
@@ -135,14 +140,68 @@ const Cart = () => {
                   </div>
                 </div>
                 
-                <button className="checkout-btn hover:bg-orange-600 hover:scale-105 transform hover:-translate-y-1 transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Go to Checkout
+                <button 
+                  className="checkout-btn hover:bg-orange-600 hover:scale-105 transform hover:-translate-y-1 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  onClick={handleCheckout}
+                >
+                  Checkout
                 </button>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Thank You Modal */}
+      {showThankYouModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowThankYouModal(false)}>
+          <div className="bg-white rounded-2xl !p-10 max-w-md w-full text-center shadow-2xl transform animate-scaleIn" onClick={(e) => e.stopPropagation()}>
+            
+            
+            {/* Title */}
+            <h2 className="text-2xl font-bold text-gray-800 !mb-6">Thank You for Your Purchase!</h2>
+            
+            {/* Message */}
+            <p className="text-gray-600 !mb-8 text-base leading-relaxed">
+              Your order has been processed successfully. You will receive a confirmation email shortly.
+            </p>
+            
+            {/* Order Summary */}
+            <div className="bg-gray-50 rounded-xl !p-6 !mb-8">
+              <h3 className="font-semibold text-gray-700 !mb-4 text-lg">Order Summary</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Total Items:</span>
+                  <span className="font-semibold text-gray-800">{cartItems.length}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Total Amount:</span>
+                  <span className="font-bold text-orange-500 text-lg">P{total.toFixed(2)}</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button 
+                className="bg-gray-100 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-200 flex-1 sm:flex-none"
+                onClick={() => setShowThankYouModal(false)}
+              >
+                Continue Shopping
+              </button>
+              <button 
+                className="bg-orange-500 text-white !px-6 !py-3 rounded-xl font-semibold hover:bg-orange-600 hover:scale-105 transition-all duration-200 shadow-lg flex-1 sm:flex-none"
+                onClick={() => {
+                  setShowThankYouModal(false)
+                  navigate('/')
+                }}
+              >
+                Go to Home
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
